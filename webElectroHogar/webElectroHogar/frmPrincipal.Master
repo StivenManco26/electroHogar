@@ -65,7 +65,7 @@
                                                         <asp:TreeNode Text="Facturación" Value="opcFacturacion"></asp:TreeNode>
                                                     </asp:TreeNode>
                                                     <asp:TreeNode Text="Maestros" Value="mnuMaestros">
-                                                        <asp:TreeNode Text="Clientes" Value="opcClientes"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Clientes" Value="opcClientes" NavigateUrl="~/frmClientes.aspx"></asp:TreeNode>
                                                         <asp:TreeNode Text="Empleados" Value="opcEmpleados"></asp:TreeNode>
                                                         <asp:TreeNode Text="Productos" Value="opcProductos"></asp:TreeNode>
                                                         <asp:TreeNode Text="Usuarios" Value="opcUsuarios"></asp:TreeNode>

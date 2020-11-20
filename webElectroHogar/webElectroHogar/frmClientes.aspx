@@ -13,29 +13,28 @@
                 <table align="center" class="auto-style9">
                     <tr>
                         <td class="auto-style10">Nro. de documento: </td>
-                        <td class="auto-style22">
-                            <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+                        <td class="auto-style35">
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style36" Height="20px" Width="280px" ></asp:TextBox>
                             &nbsp;
                             <asp:ImageButton ID="ImageButton1" runat="server" Height="23px" ImageUrl="~/imagenes/Buscar.jpg" Width="29px" />
                         </td>
                     </tr>
                     <tr>
-                        <td class="auto-style10">&nbsp;</td>
-                        <td class="auto-style22">&nbsp;</td>
+                        <td class="auto-style28" colspan="2">&nbsp;</td>
                     </tr>
                 </table>
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Button ID="Button1" runat="server" Text="agregar cliente" />
+            <td class="auto-style31">
+                <asp:Button ID="Button1" runat="server" Text="Agregar cliente" />
             </td>
         </tr>
         <tr>
             <td>&nbsp;</td>
         </tr>
         <tr>
-            <td class="auto-style12">
+            <td>
                 <asp:Panel ID="Panel1" runat="server">
                     <table class="auto-style17">
                         <tr>
@@ -56,34 +55,96 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style15">Ciudad:</td>
-                            <td class="auto-style21">
-                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="auto-style16" Height="33px" Width="309px" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-                                </asp:DropDownList>
+                            <td class="auto-style29">Mayorista:</td>
+                            <td class="auto-style30">&nbsp; &nbsp;<asp:CheckBox ID="chckMayorista" runat="server" />
                             </td>
                         </tr>
                         <tr>
-                            <td class="auto-style15">Mayorista:</td>
-                            <td class="auto-style21">&nbsp; &nbsp;<asp:CheckBox ID="chckMayorista" runat="server" />
-                            </td>
+                            <td class="auto-style28" colspan="2">&nbsp;</td>
                         </tr>
                         <tr>
-                            <td class="auto-style15">&nbsp;</td>
-                            <td class="auto-style21">&nbsp;</td>
+                            <td class="auto-style26">
+                                <asp:Button ID="Button2" runat="server" Text="Agregar dirección" />
+                            </td>
+                            <td class="auto-style27">
+                                <asp:Button ID="Button3" runat="server" Text="Agregar telefono" />
+                            </td>
                         </tr>
                     </table>
                 </asp:Panel>
             </td>
         </tr>
         <tr>
+            <td class="auto-style12">
+                <asp:Panel ID="Panel2" runat="server">
+                    <table class="auto-style17">
+                        <tr>
+                            <td class="auto-style15">Dirección:</td>
+                            <td class="auto-style21">
+                                <asp:TextBox ID="TextBox3" runat="server" Width="300px"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style15">Ciudad:</td>
+                            <td class="auto-style21">
+                                <asp:DropDownList ID="DropDownList2" runat="server" CssClass="auto-style16" Height="33px" Width="309px">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" colspan="2">
+                                <asp:Button ID="Button4" runat="server" Text="Agregar" />
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style12">
+                <asp:Panel ID="Panel3" runat="server">
+                    <table class="auto-style9">
+                        <tr>
+                            <td class="auto-style10">Telefono:</td>
+                            <td class="auto-style35">
+                                <asp:TextBox ID="TextBox4" runat="server" Width="300px"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style10">Tipo de telefono:</td>
+                            <td class="auto-style35">
+                                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="auto-style16" Height="40px" Width="150px">
+                                </asp:DropDownList>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="auto-style4" colspan="2">
+                                <asp:Button ID="Button5" runat="server" Text="Agregar" />
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style12">
+                &nbsp;</td>
+        </tr>
+        <tr>
             <td>
                 <asp:GridView ID="GridView1" runat="server">
+                    <Columns>
+                        <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/error.ico" ShowDeleteButton="True" />
+                    </Columns>
                 </asp:GridView>
             </td>
         </tr>
     <tr>
         <td>
             <asp:GridView ID="GridView2" runat="server">
+                <Columns>
+                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/error.ico" ShowDeleteButton="True" />
+                </Columns>
             </asp:GridView>
         </td>
     </tr>
@@ -150,10 +211,6 @@
             width: 385px;
         }
 
-        .auto-style22 {
-            width: 377px;
-        }
-
         .auto-style23 {
             width: 384px;
             text-align: right;
@@ -164,6 +221,37 @@
             width: 385px;
             height: 34px;
             text-align: left;
+        }
+    .auto-style26 {
+        width: 384px;
+        text-align: center;
+    }
+    .auto-style27 {
+        text-align: center;
+        width: 385px;
+    }
+    .auto-style28 {
+        text-align: right;
+    }
+    .auto-style29 {
+        width: 384px;
+        text-align: right;
+        height: 28px;
+    }
+    .auto-style30 {
+        text-align: left;
+        width: 385px;
+        height: 28px;
+    }
+    .auto-style31 {
+        height: 33px;
+    }
+    .auto-style35 {
+        text-align: left;
+        width: 377px;
+    }
+        .auto-style36 {
+            font-size: medium;
         }
     </style>
 </asp:Content>
