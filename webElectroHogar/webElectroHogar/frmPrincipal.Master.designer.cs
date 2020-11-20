@@ -7,7 +7,7 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace WebAbogadosAsoc
+namespace webElectroHogar
 {
 
 

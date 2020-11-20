@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frmPrincipal.master.cs" Inherits="WebAbogadosAsoc.frmPrincipal" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="frmPrincipal.master.cs" Inherits="webElectroHogar.frmPrincipal" %>
 
 <!DOCTYPE html>
 
@@ -59,16 +59,16 @@
                                                 <HoverNodeStyle BackColor="#CCCCCC" BorderColor="#66CCFF" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="#0099FF" />
                                                 <LeafNodeStyle HorizontalPadding="12px" />
                                                 <Nodes>
-                                                    <asp:TreeNode NavigateUrl="~/frmInicio.aspx" Text="Inicio" Value="mnuInicio"></asp:TreeNode>
-                                                    <asp:TreeNode Text="Actividades" Value="mnuActividades">
-                                                        <asp:TreeNode NavigateUrl="~/frmCaso.aspx" Text="Caso" Value="opcCaso"></asp:TreeNode>
+                                                    <asp:TreeNode Text="Inicio" Value="mnuInicio"></asp:TreeNode>
+                                                    <asp:TreeNode Text="Login" Value="mnuLogin"></asp:TreeNode>
+                                                    <asp:TreeNode Text="Operación" Value="mnuActividades">
+                                                        <asp:TreeNode Text="Facturación" Value="opcFacturacion"></asp:TreeNode>
                                                     </asp:TreeNode>
                                                     <asp:TreeNode Text="Maestros" Value="mnuMaestros">
-                                                        <asp:TreeNode NavigateUrl="~/frmCliente.aspx" Text="Cliente" Value="opcCliente"></asp:TreeNode>
-                                                        <asp:TreeNode NavigateUrl="~/frmAsociado.aspx" Text="Asociado" Value="opcAsociado"></asp:TreeNode>
-                                                        <asp:TreeNode NavigateUrl="~/frmTipoCaso.aspx" Text="Tipo Caso" Value="opcTipoCaso"></asp:TreeNode>
-                                                        <asp:TreeNode NavigateUrl="~/frmTipoCasoTipo.aspx" Text="Clasifica tipo de Caso" Value="opcTipCasoTip"></asp:TreeNode>
-                                                        <asp:TreeNode NavigateUrl="~/frmTipoDoc.aspx" Text="Tipo Documento" Value="opcTipoDoc"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Clientes" Value="opcClientes"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Empleados" Value="opcEmpleados"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Productos" Value="opcProductos"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Usuarios" Value="opcUsuarios"></asp:TreeNode>
                                                     </asp:TreeNode>
                                                 </Nodes>
                                                 <RootNodeStyle ForeColor="Black" Font-Bold="True" />
