@@ -67,20 +67,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Formulario web1.aspx" />
+    <Content Include="frmFacturacion.aspx" />
+    <Content Include="frmProductos.aspx" />
+    <Content Include="frmLogin.aspx" />
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imagenes\Buscar.jpg" />
+    <Content Include="imagenes\error.ico" />
     <Content Include="imagenes\logo.png" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formulario web1.aspx.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="frmFacturacion.aspx.cs">
+      <DependentUpon>frmFacturacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formulario web1.aspx.designer.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="frmFacturacion.aspx.designer.cs">
+      <DependentUpon>frmFacturacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmProductos.aspx.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmProductos.aspx.designer.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmInicio.aspx.cs">
       <DependentUpon>frmInicio.aspx</DependentUpon>
