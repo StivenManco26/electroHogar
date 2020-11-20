@@ -11,7 +11,7 @@
     <style type="text/css">
         .auto-style2 {
             width: 100%;
-            border: 3px solid #800000;
+            /*border: 3px solid #800000;*/
         }
         .auto-style3 {
             text-align: center;
@@ -55,7 +55,7 @@
                             <table align="center" class="auto-style5">
                                 <tr>
                                     <td class="auto-style6">
-                                            <asp:TreeView ID="trvMenuPpal" runat="server" ExpandDepth="1" OnSelectedNodeChanged="trvMenuPpal_SelectedNodeChanged1" ShowLines="True" Font-Names="Calibri" Font-Size="Medium">
+                                            <asp:TreeView ID="trvMenuPpal" runat="server" ExpandDepth="1"  ShowLines="True" Font-Names="Calibri" Font-Size="Medium">
                                                 <HoverNodeStyle BackColor="#CCCCCC" BorderColor="#66CCFF" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="#0099FF" />
                                                 <LeafNodeStyle HorizontalPadding="12px" />
                                                 <Nodes>
