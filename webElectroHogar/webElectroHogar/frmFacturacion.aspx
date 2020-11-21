@@ -26,7 +26,9 @@
                         <tr>
                             <td class="auto-style15" style="width: 20%">Cliente:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
+                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                                </span>
                             </td>
                             <td class="auto-style15" style="width: 20%">Nombre:</td>
                             <td style="width: 30%">

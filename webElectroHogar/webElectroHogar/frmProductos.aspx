@@ -71,6 +71,15 @@
         </tr>
         <tr>
             <td class="auto-style9">
+                <asp:GridView ID="grvDatos" runat="server" Width="98%">
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td class="auto-style9">&nbsp;</td>
+        </tr>
+        <tr>
+            <td class="auto-style9">
                 <asp:Label ID="lblMsj" runat="server" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" ForeColor="#CC0000" Width="90%"></asp:Label>
             </td>
         </tr>
