@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Formulario web1.aspx" />
+    <Content Include="frmUsuarios.aspx" />
     <Content Include="frmEmpleados.aspx" />
     <Content Include="frmClientes.aspx" />
     <Content Include="frmInicio.aspx" />
@@ -84,6 +85,13 @@
     </Compile>
     <Compile Include="Formulario web1.aspx.designer.cs">
       <DependentUpon>Formulario web1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.aspx.cs">
+      <DependentUpon>frmUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.aspx.designer.cs">
+      <DependentUpon>frmUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmEmpleados.aspx.cs">
       <DependentUpon>frmEmpleados.aspx</DependentUpon>

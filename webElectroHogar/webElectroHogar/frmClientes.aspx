@@ -14,7 +14,7 @@
                     <tr>
                         <td class="auto-style10">Nro. de documento: </td>
                         <td class="auto-style35">
-                            <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style36" Height="20px" Width="280px" ></asp:TextBox>
+                            <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style36" Height="20px" Width="280px"></asp:TextBox>
                             &nbsp;
                             <asp:ImageButton ID="ImageButton1" runat="server" Height="23px" ImageUrl="~/imagenes/Buscar.jpg" Width="29px" />
                         </td>
@@ -27,11 +27,22 @@
         </tr>
         <tr>
             <td class="auto-style31">
-                <asp:Button ID="Button1" runat="server" Text="Agregar cliente" />
+                <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" OnMenuItemClick="mnuOpciones_MenuItemClick" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <Items>
+                        <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
+                        <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
+                        <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
+                        <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
+                        <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
+                    </Items>
+                    <StaticHoverStyle BorderStyle="Solid" BorderWidth="2px" ForeColor="Black" />
+                    <StaticMenuItemStyle HorizontalPadding="20px" />
+                </asp:Menu>
             </td>
         </tr>
         <tr>
-            <td>&nbsp;</td>
+            <td>
+                &nbsp;</td>
         </tr>
         <tr>
             <td>
@@ -113,7 +124,7 @@
                         <tr>
                             <td class="auto-style10">Tipo de telefono:</td>
                             <td class="auto-style35">
-                                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="auto-style16" Height="40px" Width="150px">
+                                <asp:DropDownList ID="DropDownList3" runat="server" CssClass="auto-style16" Height="33px" Width="309px">
                                 </asp:DropDownList>
                             </td>
                         </tr>
@@ -127,35 +138,34 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style12">
-                &nbsp;</td>
+            <td class="auto-style12">&nbsp;</td>
         </tr>
         <tr>
             <td>
-                <asp:GridView ID="GridView1" runat="server">
+                <asp:GridView ID="GridView1" runat="server" Width="96%">
                     <Columns>
                         <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/error.ico" ShowDeleteButton="True" />
                     </Columns>
                 </asp:GridView>
             </td>
         </tr>
-    <tr>
-        <td>
-            <asp:GridView ID="GridView2" runat="server">
-                <Columns>
-                    <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/error.ico" ShowDeleteButton="True" />
-                </Columns>
-            </asp:GridView>
-        </td>
-    </tr>
-    <tr>
-        <td>&nbsp;</td>
-    </tr>
-    <tr>
-        <td>
-            <asp:Label ID="lblMsj" runat="server" CssClass="auto-style13"></asp:Label>
-        </td>
-    </tr>
+        <tr>
+            <td>
+                <asp:GridView ID="GridView2" runat="server" Width="96%">
+                    <Columns>
+                        <asp:CommandField ButtonType="Image" DeleteImageUrl="~/imagenes/error.ico" ShowDeleteButton="True" />
+                    </Columns>
+                </asp:GridView>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label ID="lblMsj" runat="server" CssClass="auto-style13"></asp:Label>
+            </td>
+        </tr>
     </table>
 </asp:Content>
 <asp:Content ID="Content5" runat="server" ContentPlaceHolderID="head">
@@ -222,34 +232,42 @@
             height: 34px;
             text-align: left;
         }
-    .auto-style26 {
-        width: 384px;
-        text-align: center;
-    }
-    .auto-style27 {
-        text-align: center;
-        width: 385px;
-    }
-    .auto-style28 {
-        text-align: right;
-    }
-    .auto-style29 {
-        width: 384px;
-        text-align: right;
-        height: 28px;
-    }
-    .auto-style30 {
-        text-align: left;
-        width: 385px;
-        height: 28px;
-    }
-    .auto-style31 {
-        height: 33px;
-    }
-    .auto-style35 {
-        text-align: left;
-        width: 377px;
-    }
+
+        .auto-style26 {
+            width: 384px;
+            text-align: center;
+        }
+
+        .auto-style27 {
+            text-align: center;
+            width: 385px;
+        }
+
+        .auto-style28 {
+            text-align: right;
+        }
+
+        .auto-style29 {
+            width: 384px;
+            text-align: right;
+            height: 28px;
+        }
+
+        .auto-style30 {
+            text-align: left;
+            width: 385px;
+            height: 28px;
+        }
+
+        .auto-style31 {
+            height: 33px;
+        }
+
+        .auto-style35 {
+            text-align: left;
+            width: 377px;
+        }
+
         .auto-style36 {
             font-size: medium;
         }
