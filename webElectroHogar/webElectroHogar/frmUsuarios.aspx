@@ -3,7 +3,7 @@
     <table class="auto-style2">
         <tbody class="auto-style7">
             <tr>
-                <td>Usuarios</td>
+                <td class="auto-style20">Usuarios</td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>
-                <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" OnMenuItemClick="mnuOpciones_MenuItemClick" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                     <Items>
                         <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
                         <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
@@ -92,6 +92,10 @@
         .auto-style13 {
             color: #FF0000;
             font-size: small;
+        }
+
+        .auto-style20 {
+            height: 27px;
         }
 
         </style>

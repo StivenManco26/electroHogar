@@ -20,7 +20,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" OnMenuItemClick="mnuOpciones_MenuItemClick" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                     <Items>
                         <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
                         <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
@@ -41,7 +41,7 @@
                 <asp:Panel ID="Panel1" runat="server">
                     <table class="auto-style10">
                         <tr>
-                            <td class="auto-style20">Nombre:</td>
+                            <td class="auto-style20">&nbsp;</td>
                             <td class="auto-style21"><strong>
                                 <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style17" Width="244px"></asp:TextBox>
                                 </strong></td>
