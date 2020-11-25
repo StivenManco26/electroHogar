@@ -67,10 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Formulario web1.aspx" />
-    <Content Include="frmUsuarios.aspx" />
-    <Content Include="frmEmpleados.aspx" />
-    <Content Include="frmClientes.aspx" />
+    <Content Include="frmFacturacion.aspx" />
+    <Content Include="frmProductos.aspx" />
+    <Content Include="frmLogin.aspx" />
     <Content Include="frmInicio.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imagenes\Buscar.jpg" />
@@ -79,33 +78,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Formulario web1.aspx.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="frmFacturacion.aspx.cs">
+      <DependentUpon>frmFacturacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Formulario web1.aspx.designer.cs">
-      <DependentUpon>Formulario web1.aspx</DependentUpon>
+    <Compile Include="frmFacturacion.aspx.designer.cs">
+      <DependentUpon>frmFacturacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmUsuarios.aspx.cs">
-      <DependentUpon>frmUsuarios.aspx</DependentUpon>
+    <Compile Include="frmProductos.aspx.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmUsuarios.aspx.designer.cs">
-      <DependentUpon>frmUsuarios.aspx</DependentUpon>
+    <Compile Include="frmProductos.aspx.designer.cs">
+      <DependentUpon>frmProductos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="frmEmpleados.aspx.cs">
-      <DependentUpon>frmEmpleados.aspx</DependentUpon>
+    <Compile Include="frmLogin.aspx.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="frmEmpleados.aspx.designer.cs">
-      <DependentUpon>frmEmpleados.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="frmClientes.aspx.cs">
-      <DependentUpon>frmClientes.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="frmClientes.aspx.designer.cs">
-      <DependentUpon>frmClientes.aspx</DependentUpon>
+    <Compile Include="frmLogin.aspx.designer.cs">
+      <DependentUpon>frmLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmInicio.aspx.cs">
       <DependentUpon>frmInicio.aspx</DependentUpon>
