@@ -14,32 +14,32 @@
                     <tr>
                         <td style="width: 40%"><strong>Codigo:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox1" runat="server" Width="74%"></asp:TextBox>
-&nbsp;<asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                            <asp:TextBox ID="txtCodigo" runat="server" Width="74%"></asp:TextBox>
+&nbsp;<asp:ImageButton ID="imgButtonBuscar" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Descripción:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox2" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtDescripcion" runat="server" Width="80%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Valor Unitario:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox3" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtValorUn" runat="server" Width="80%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>%IVA:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox4" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtIva" runat="server" Width="80%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Clasificación:</strong></td>
                         <td>
-                            <asp:DropDownList ID="DropDownList1" runat="server" Width="80%">
+                            <asp:DropDownList ID="ddlClasificacion" runat="server" Width="80%">
                             </asp:DropDownList>
                         </td>
                     </tr>
@@ -52,7 +52,7 @@
         <tr>
             <td class="auto-style9">
                 <asp:Panel ID="Panel1" runat="server">
-                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" OnMenuItemClick="mnuOpciones_MenuItemClick" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                         <Items>
                             <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
@@ -71,7 +71,7 @@
         </tr>
         <tr>
             <td class="auto-style9">
-                <asp:GridView ID="grvDatos" runat="server" Width="98%">
+                <asp:GridView ID="grvDatosProductos" runat="server" Width="98%">
                 </asp:GridView>
             </td>
         </tr>

@@ -43,6 +43,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="libGeneralesBD">
+      <HintPath>..\..\LibreriasComunes\libGeneralesBD\libGeneralesBD\bin\Debug\libGeneralesBD.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarCBList">
+      <HintPath>..\..\LibreriasComunes\libLlenarCBList\libLlenarCBList\bin\Debug\libLlenarCBList.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarCombos">
+      <HintPath>..\..\LibreriasComunes\libLlenarCombos\libLlenarCombos\bin\Debug\libLlenarCombos.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarGrids">
+      <HintPath>..\..\LibreriasComunes\libLlenarGrids\libLlenarGrids\bin\Debug\libLlenarGrids.dll</HintPath>
+    </Reference>
+    <Reference Include="libLlenarRBList">
+      <HintPath>..\..\LibreriasComunes\libLlenarRBList\libLlenarRBList\bin\Debug\libLlenarRBList.dll</HintPath>
+    </Reference>
+    <Reference Include="libParametros">
+      <HintPath>..\..\LibreriasComunes\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,10 +85,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CON_WebElectroHogar.xml" />
+    <Content Include="frmClientes.aspx" />
+    <Content Include="frmEmpleados.aspx" />
     <Content Include="frmFacturacion.aspx" />
     <Content Include="frmProductos.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="frmInicio.aspx" />
+    <Content Include="frmUsuarios.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imagenes\Buscar.jpg" />
     <Content Include="imagenes\error.ico" />
@@ -78,6 +100,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\clsClasificacion.cs" />
+    <Compile Include="Clases\clsGenerales.cs" />
+    <Compile Include="Clases\clsProductos.cs" />
+    <Compile Include="frmClientes.aspx.cs">
+      <DependentUpon>frmClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmClientes.aspx.designer.cs">
+      <DependentUpon>frmClientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleados.aspx.cs">
+      <DependentUpon>frmEmpleados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpleados.aspx.designer.cs">
+      <DependentUpon>frmEmpleados.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturacion.aspx.cs">
       <DependentUpon>frmFacturacion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -112,6 +149,12 @@
     </Compile>
     <Compile Include="frmPrincipal.Master.designer.cs">
       <DependentUpon>frmPrincipal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.aspx.cs">
+      <DependentUpon>frmUsuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.aspx.designer.cs">
+      <DependentUpon>frmUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

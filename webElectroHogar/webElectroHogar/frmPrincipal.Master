@@ -59,15 +59,15 @@
                                                 <HoverNodeStyle BackColor="#CCCCCC" BorderColor="#66CCFF" BorderStyle="Solid" BorderWidth="1px" Font-Bold="True" ForeColor="#0099FF" />
                                                 <LeafNodeStyle HorizontalPadding="12px" />
                                                 <Nodes>
-                                                    <asp:TreeNode Text="Inicio" Value="mnuInicio"></asp:TreeNode>
-                                                    <asp:TreeNode Text="Login" Value="mnuLogin"></asp:TreeNode>
+                                                    <asp:TreeNode Text="Inicio" Value="mnuInicio" NavigateUrl="~/frmInicio.aspx"></asp:TreeNode>
+                                                    <asp:TreeNode Text="Login" Value="mnuLogin" NavigateUrl="~/frmLogin.aspx"></asp:TreeNode>
                                                     <asp:TreeNode Text="Operación" Value="mnuActividades">
-                                                        <asp:TreeNode Text="Facturación" Value="opcFacturacion"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Facturación" Value="opcFacturacion" NavigateUrl="~/frmFacturacion.aspx"></asp:TreeNode>
                                                     </asp:TreeNode>
                                                     <asp:TreeNode Text="Maestros" Value="mnuMaestros">
                                                         <asp:TreeNode Text="Clientes" Value="opcClientes" NavigateUrl="~/frmClientes.aspx"></asp:TreeNode>
                                                         <asp:TreeNode Text="Empleados" Value="opcEmpleados" NavigateUrl="~/frmEmpleados.aspx"></asp:TreeNode>
-                                                        <asp:TreeNode Text="Productos" Value="opcProductos"></asp:TreeNode>
+                                                        <asp:TreeNode Text="Productos" Value="opcProductos" NavigateUrl="~/frmProductos.aspx"></asp:TreeNode>
                                                         <asp:TreeNode Text="Usuarios" Value="opcUsuarios" NavigateUrl="~/frmUsuarios.aspx"></asp:TreeNode>
                                                     </asp:TreeNode>
                                                 </Nodes>
