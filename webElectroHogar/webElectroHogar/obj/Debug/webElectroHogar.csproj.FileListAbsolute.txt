@@ -116,3 +116,15 @@ D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\obj\Debug\webElectr
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\obj\Debug\webElectroHogar.csproj.CopyComplete
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\obj\Debug\webElectroHogar.dll
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\obj\Debug\webElectroHogar.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libGeneralesBD.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarCBList.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarCombos.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarGrids.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarRBList.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libParametros.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libGeneralesBD.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarCBList.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarCombos.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarGrids.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarRBList.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libParametros.pdb
