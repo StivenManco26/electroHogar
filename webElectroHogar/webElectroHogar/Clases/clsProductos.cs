@@ -171,6 +171,7 @@ namespace webElectroHogar.Clases
                 codigo = myReader.GetInt32(0);
                 descripcion = myReader.GetString(1);
                 valorUnitario = myReader.GetDecimal(2);
+                valorUnitario = Math.Truncate(valorUnitario);
                 iva = myReader.GetDouble(3);
                 clasificacion = myReader.GetInt32(4);
                 myReader.Close();
@@ -186,7 +187,7 @@ namespace webElectroHogar.Clases
         {
             if (!validarDatos())
                 return false;
-            strSQL = "EXEC USP_Prod_Grabar '" + descripcion + "', " + "'" + Math.Truncate(valorUnitario) + "', "
+            strSQL = "EXEC USP_Prod_Grabar '" + descripcion + "', " + Math.Truncate(valorUnitario) + ", "
                 + iva.ToString().Replace(',','.') + ", " + clasificacion + ", 1111;";
             return Grabar();
             //EXEC USP_Prod_Grabar 'MOTOROLA MOTO ONE 32GB', '460000', 0.19, 3, 1111
