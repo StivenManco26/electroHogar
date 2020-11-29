@@ -128,3 +128,15 @@ C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLle
 C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarGrids.pdb
 C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libLlenarRBList.pdb
 C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libParametros.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libGeneralesBD.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarCBList.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarCombos.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarGrids.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarRBList.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libParametros.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libGeneralesBD.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarCBList.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarCombos.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarGrids.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarRBList.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libParametros.pdb

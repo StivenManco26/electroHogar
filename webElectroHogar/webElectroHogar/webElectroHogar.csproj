@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\clsClasificacion.cs" />
+    <Compile Include="Clases\clsFormaPago.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsProductos.cs" />
     <Compile Include="frmClientes.aspx.cs">
