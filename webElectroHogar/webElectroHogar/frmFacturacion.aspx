@@ -38,7 +38,7 @@
                         <tr>
                             <td class="auto-style15" style="width: 20%">Forma pago:</td>
                             <td style="width: 30%">
-                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="auto-style14" Width="90%">
+                                <asp:DropDownList ID="ddlFormaPago" runat="server" CssClass="auto-style14" Width="90%">
                                 </asp:DropDownList>
                             </td>
                             <td class="auto-style15" style="width: 20%">F. Entrega:</td>

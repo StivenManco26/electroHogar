@@ -119,7 +119,7 @@ namespace webElectroHogar
                 //intCodigo = Convert.ToInt32(this.txtCodigo.Text.Trim());
                 strDescripcion = this.txtDescripcion.Text.Trim();
                 dcmlValorUnitario = Convert.ToDecimal(this.txtValorUn.Text);
-                dblIva = Convert.ToDouble(this.txtIva.Text)/100;
+                dblIva = Convert.ToDouble(this.txtIva.Text);
                 intClasificacion = this.ddlClasificacion.SelectedIndex+1;
                 Clases.clsProductos objXX = new Clases.clsProductos(strApp, intCodigo,
                 strDescripcion, dcmlValorUnitario, dblIva, intClasificacion);
