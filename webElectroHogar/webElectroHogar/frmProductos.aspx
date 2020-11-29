@@ -14,26 +14,26 @@
                     <tr>
                         <td style="width: 40%"><strong>Codigo:</strong></td>
                         <td>
-                            <asp:TextBox ID="txtCodigo" runat="server" Width="74%"></asp:TextBox>
-&nbsp;<asp:ImageButton ID="imgButtonBuscar" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                            <asp:TextBox ID="txtCodigo" runat="server" Width="80%" ReadOnly="True"></asp:TextBox>
+&nbsp;<asp:ImageButton ID="imgButtonBuscar" runat="server" ImageUrl="~/imagenes/Buscar.jpg" Height="22px" Width="25px" OnClick="imgButtonBuscar_Click" Visible="False" />
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Descripción:</strong></td>
                         <td>
-                            <asp:TextBox ID="txtDescripcion" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtDescripcion" runat="server" Width="80%" ReadOnly="True"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Valor Unitario:</strong></td>
                         <td>
-                            <asp:TextBox ID="txtValorUn" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtValorUn" runat="server" Width="80%" ReadOnly="True"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>%IVA:</strong></td>
                         <td>
-                            <asp:TextBox ID="txtIva" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtIva" runat="server" Width="80%" ReadOnly="True"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -52,7 +52,7 @@
         <tr>
             <td class="auto-style9">
                 <asp:Panel ID="Panel1" runat="server">
-                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%" OnMenuItemClick="mnuOpciones_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
@@ -76,7 +76,7 @@
             </td>
         </tr>
         <tr>
-            <td class="auto-style9">&nbsp;</td>
+            <td class="auto-style12"></td>
         </tr>
         <tr>
             <td class="auto-style9">
@@ -102,6 +102,10 @@
         .auto-style10 {
             font-size: medium;
             height: 22px;
+        }
+        .auto-style12 {
+            font-size: medium;
+            height: 27px;
         }
     </style>
 </asp:Content>
