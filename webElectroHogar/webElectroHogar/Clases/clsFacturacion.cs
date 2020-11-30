@@ -411,7 +411,79 @@ namespace webElectroHogar.Clases
             return true;
         }
 
+        public bool BuscarCliente_Casos(string NroDocCliente, GridView grid)
+        {
+            try
+            {
+                if (BuscarNombreCliente(NroDocCliente))
+                {
+                    strSQL = "EXEC USP_Fac_BuscarFac_X_Cliente '" + NroDocCliente + "';";
+                    clsGeneralesBD objCnx = new clsGeneralesBD(strApp);
+                    objCnx.SQL = strSQL;
+                    if (!objCnx.llenarDataSet(false))
+                    {
+                        Error = objCnx.Error;
+                        objCnx.cerrarCnx();
+                        objCnx = null;
+                        return false;
+                    }
 
+                    Myds = objCnx.dataSetLleno;
+                    objCnx = null;
+                    Mydt = Myds.Tables[0];
+                    if (Mydt.Rows.Count <= 0)
+                    {
+                        Error = "No existen casos para el cliente con Nro. Doc.: " + NroDocCliente;
+                        Myds.Clear();
+                        Myds = null;
+                        return false;
+                    }
+                    grid.DataSource = Mydt;
+                    grid.DataBind();
+                    grid.GridLines = GridLines.Both;
+                    grid.CellPadding = 1;
+                    grid.ForeColor = System.Drawing.Color.Black;
+                    grid.BackColor = System.Drawing.Color.Beige;
+                    grid.AlternatingRowStyle.BackColor = System.Drawing.Color.Gainsboro;
+                    grid.HeaderStyle.BackColor = System.Drawing.Color.Aqua;
+                    return true;
+                }
+                else
+                {
+                    Error = "No existe el cliente con Nro. Doc.: " + NroDocCliente;
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool GrabarDetalle()
+        {
+            try
+            {
+                if (!ValidarDatosDetalle())
+                    return false;
+                if (Numero <= 0)
+                {
+                    Error = "Nro. de Caso no Válido";
+                    return false;
+                }
+                strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", " + Cantidad + ", " +
+                CodEmpleado + ";";
+                if (!Grabar())
+                    return false;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
         #endregion
     }
 }
