@@ -15,24 +15,24 @@
                         <tr>
                             <td class="auto-style10" style="width: 20%">Numero:</td>
                             <td class="auto-style11" style="width: 30%">
-                                <asp:TextBox ID="TextBox1" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
+                                <asp:TextBox ID="txtNumero" runat="server" CssClass="auto-style14" Width="74%" ReadOnly="True"></asp:TextBox>
                                 &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
                                 </span></td>
                             <td class="auto-style12" style="width: 20%">Fecha:</span></td>
                             <td class="auto-style12" style="width: 30%">
-                                <asp:TextBox ID="TextBox6" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtFecha" runat="server" CssClass="auto-style14" Width="90%" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style15" style="width: 20%">Cliente:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
+                                <asp:TextBox ID="txtCliente" runat="server" CssClass="auto-style14" Width="74%" ReadOnly="True"></asp:TextBox>
                                 &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
                                 </span>
                             </td>
                             <td class="auto-style15" style="width: 20%">Nombre:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox7" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtNombre" runat="server" CssClass="auto-style14" Width="90%" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
@@ -43,27 +43,27 @@
                             </td>
                             <td class="auto-style15" style="width: 20%">F. Entrega:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox8" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtFechaEntr" runat="server" CssClass="auto-style14" Width="90%" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style15" style="width: 20%">IVA:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox4" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtIVA" runat="server" CssClass="auto-style14" Width="90%" Font-Bold="True" ReadOnly="True"></asp:TextBox>
                             </td>
                             <td class="auto-style15" style="width: 20%">Descuento:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox9" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtDesc" runat="server" CssClass="auto-style14" Width="90%" Font-Bold="True" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td class="auto-style15" style="width: 20%">Total:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox5" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtTotal" runat="server" CssClass="auto-style14" Width="90%" Font-Bold="True" ReadOnly="True"></asp:TextBox>
                             </td>
                             <td class="auto-style15" style="width: 20%">Empleado:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox10" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtEmpleado" runat="server" CssClass="auto-style14" Width="90%" Font-Bold="True" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                     </table>
@@ -74,7 +74,8 @@
             <td class="auto-style8">
                     <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                         <Items>
-                            <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
+                            <asp:MenuItem Text="BuscarXNumero" Value="opcBuscarXNumero"></asp:MenuItem>
+                            <asp:MenuItem Text="BuscarXCliente" Value="opcBuscarXCliente"></asp:MenuItem>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
@@ -91,24 +92,24 @@
         </tr>
         <tr>
             <td class="auto-style16">
-                <asp:Panel ID="Panel2" runat="server" GroupingText="Producto">
+                <asp:Panel ID="Panel2" runat="server" GroupingText="Producto" Visible="False">
                     <table class="auto-style2">
                         <tr>
                             <td style="width: 20%">Codigo:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox11" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
+                                <asp:TextBox ID="txtCodigo" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
                                 &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
                                 </span>
                             </td>
                             <td style="width: 20%">Producto:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox12" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtProducto" runat="server" CssClass="auto-style14" Width="90%" ReadOnly="True"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>
                             <td style="width: 20%">Cantidad:</td>
                             <td style="width: 30%">
-                                <asp:TextBox ID="TextBox13" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
+                                <asp:TextBox ID="txtCant" runat="server" CssClass="auto-style14" Width="90%"></asp:TextBox>
                             </td>
                             <td style="width: 20%">&nbsp;</td>
                             <td style="width: 30%">&nbsp;</td>
@@ -119,7 +120,7 @@
         </tr>
         <tr>
             <td class="auto-style17">
-                <asp:Button ID="Button1" runat="server" Text="Adicionar" />
+                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" />
             </td>
         </tr>
         <tr>
