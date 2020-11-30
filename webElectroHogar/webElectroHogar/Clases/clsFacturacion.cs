@@ -221,39 +221,6 @@ namespace webElectroHogar.Clases
             { Error = ex.Message; }
         }
 
-        private bool BuscarNombreCliente(string NroDocCliente)
-        {
-            try
-            {
-                strSQL = "EXEC USP_Fac_BuscarCliente '" + NroDocCliente + "';";
-                clsGeneralesBD objCnx = new clsGeneralesBD(strApp);
-                objCnx.SQL = strSQL;
-                if (!objCnx.Consultar(false))
-                {
-                    Error = objCnx.Error;
-                    objCnx.cerrarCnx();
-                    objCnx = null;
-                    return false;
-                }
-                MyReader = objCnx.dataReaderLleno;
-                if (!MyReader.HasRows)
-                {
-                    Error = "No existe registro con el Documento: " + NroDocCliente;
-                    objCnx.cerrarCnx();
-                    objCnx = null;
-                    return false;
-                }
-                MyReader.Read();
-                Cliente = MyReader.GetString(0);
-                MyReader.Close();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Error = ex.Message;
-                return false;
-            }
-        }
 
         private bool BuscarTipoCliente(string NroDocCliente)
         {
@@ -371,25 +338,84 @@ namespace webElectroHogar.Clases
             }
         }
 
+        public bool BuscarNombreCliente(string NroDocCliente)
+        {
+            try
+            {
+                strSQL = "EXEC USP_Fac_BuscarCliente '" + NroDocCliente + "';";
+                clsGeneralesBD objCnx = new clsGeneralesBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                MyReader = objCnx.dataReaderLleno;
+                if (!MyReader.HasRows)
+                {
+                    Error = "No existe registro con el Documento: " + NroDocCliente;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                MyReader.Read();
+                Nombre = MyReader.GetString(0);
+                MyReader.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
+
+        public bool BuscarNombreProducto(int Codigo)
+        {
+            try
+            {
+                strSQL = "EXEC USP_BuscarProducto " + Codigo + ";";
+                clsGeneralesBD objCnx = new clsGeneralesBD(strApp);
+                objCnx.SQL = strSQL;
+                if (!objCnx.Consultar(false))
+                {
+                    Error = objCnx.Error;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                MyReader = objCnx.dataReaderLleno;
+                if (!MyReader.HasRows)
+                {
+                    Error = "No existe registro con el Documento: " + Codigo;
+                    objCnx.cerrarCnx();
+                    objCnx = null;
+                    return false;
+                }
+                MyReader.Read();
+                Producto = MyReader.GetString(0);
+                MyReader.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Error = ex.Message;
+                return false;
+            }
+        }
         public bool grabarMaestro()
         {
-            if (!ValidarDatosEncabezado() || !ValidarDatosDetalle())
+            if (!ValidarDatosEncabezado()) //|| !ValidarDatosDetalle())
                 return false;
             //Grabar el encabezado
             strSQL = "EXEC USP_Fac_Grabar_Agregar '" + Cliente + "'," + "'" + FormaPago + "'," + CodEmpleado + ";";
             if (!Grabar())
                 return false;
-            //Comienza RN
-            float PorcDesc = -1;
-            clsOpDescuento oO = new clsOpDescuento();
-            oO.intTipo = TipoCliente;
-            if(BuscarTipoCliente(Cliente)){
-                if (oO.Descuento())
-                    PorcDesc = oO.fltDesc;
-            }
+            
             //Grabar el Detalle
-            strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", "  + Cantidad + ", "
-            + PorcDesc + ";";
+            //strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", "  + Cantidad + ", "+ PorcDesc + ";";
             if (!Grabar())
                 return false;
             return true;
@@ -472,8 +498,18 @@ namespace webElectroHogar.Clases
                     Error = "Nro. de Factura no Válido";
                     return false;
                 }
+                //Comienza RN
+                float PorcDesc = -1;
+                clsOpDescuento oO = new clsOpDescuento();
+                oO.intTipo = TipoCliente;
+                oO.intCant = Convert.ToInt32(Cantidad);
+                if (BuscarTipoCliente(Cliente))
+                {
+                    if (oO.Descuento())
+                        PorcDesc = oO.fltDesc;
+                }
                 strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", " + Cantidad + ", " +
-                CodEmpleado + ";";
+                PorcDesc + ";";
                 if (!Grabar())
                     return false;
                 return true;
