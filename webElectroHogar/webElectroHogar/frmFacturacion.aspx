@@ -120,7 +120,9 @@
         </tr>
         <tr>
             <td class="auto-style17">
-                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" />
+                <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click" Visible="False"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" Visible="False" />
             </td>
         </tr>
         <tr>

@@ -116,6 +116,12 @@ namespace webElectroHogar
             LimpiarDetalle();
             this.grvDatos.DataSource = null;
             this.grvDatos.DataBind();
+            this.pnlProducto.Visible = false;
+        }
+
+        protected void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
@@ -141,8 +147,10 @@ namespace webElectroHogar
                 //ibtnBuscarCaso_Click(null, null);
                 this.txtProducto.Text = string.Empty;
                 this.txtCant.Text = string.Empty;
-                //this.btnAdicionar.Visible = false;
+                //this.btnAdicionar.Visible = true;
+                imgBtnBuscarNum_Click(null,null);
                 Mensaje("Detalle grabado con éxito");
+                this.btnFinalizar.Visible = true;
             }
             catch (Exception ex)
             {
@@ -314,19 +322,23 @@ namespace webElectroHogar
                     this.txtFechaEntr.ReadOnly = false;
                     this.txtFechaEntr.Enabled = true;
                     this.imgBtnBuscarCli.Visible = true;
-                    this.btnAdicionar.Visible = true;
                     this.txtCliente.Focus();
                     this.txtFecha.Text = DateTime.Today.Date.ToShortDateString();
                     break;
                 case "opcModificar":
                     intOpcion = 2;
-                    Limpiar();
-                    this.imgBtnBuscarNum.Visible = true;
-                    this.txtNumero.ReadOnly = false;
+                    this.pnlProducto.Visible = true;
+                    this.pnlProducto.Enabled = true;
+                    this.imgBtnBuscarCod.Visible = true;
+                    this.txtCodigo.ReadOnly = false;
+                    this.txtCodigo.Enabled = true;
+                    this.txtNumero.ReadOnly = true;
+                    this.btnAdicionar.Visible = true;
                     this.txtNumero.Focus();
                     break;
                 case "opcBuscarXNumero":
                     intOpcion = 0;
+                    this.pnlProducto.Visible = false;
                     Limpiar();
                     this.txtNumero.ReadOnly = false;
                     this.imgBtnBuscarNum.Visible = true;
@@ -334,6 +346,7 @@ namespace webElectroHogar
                     break;
                 case "opcBuscarXCliente":
                     intOpcion = 0;
+                    this.pnlProducto.Visible = false;
                     Limpiar();
                     this.txtCliente.ReadOnly = false;
                     this.imgBtnBuscarCli.Visible = true;
@@ -341,7 +354,19 @@ namespace webElectroHogar
                     break;
                 case "opcGrabar":
                     Grabar();
-                    intOpcion = 0;
+                    if (intOpcion == 1)
+                    {
+                        this.pnlProducto.Enabled = true;
+                        this.pnlProducto.Visible = true;
+                        this.imgBtnBuscarCod.Visible = true;
+                        this.txtNumero.ReadOnly = true;
+                        this.txtCodigo.Focus();
+                        intOpcion = 2;
+                    }
+                    else 
+                    {
+                        intOpcion = 0;
+                    }
                     break;
                 case "opcCancelar":
                     intOpcion = 0;
