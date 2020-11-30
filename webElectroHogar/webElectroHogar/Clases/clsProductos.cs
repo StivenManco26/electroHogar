@@ -94,11 +94,6 @@ namespace webElectroHogar.Clases
                 Error = "Falta el IVA";
                 return false;
             }
-            /*if (iva.ToString().Contains(","))
-            {
-                Error = "Error formato de IVA no debe contener ','";
-                return false;
-            }*/
             return true;
         }
 
