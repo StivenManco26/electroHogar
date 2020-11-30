@@ -16,9 +16,9 @@
                             <td class="auto-style10" style="width: 20%">Numero:</td>
                             <td class="auto-style11" style="width: 30%">
                                 <asp:TextBox ID="txtNumero" runat="server" CssClass="auto-style14" Width="74%" ReadOnly="True"></asp:TextBox>
-                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="imgBtnBuscarNum" runat="server" ImageUrl="~/imagenes/Buscar.jpg" Visible="False" OnClick="imgBtnBuscarNum_Click" />
                                 </span></td>
-                            <td class="auto-style12" style="width: 20%">Fecha:</span></td>
+                            <td class="auto-style12" style="width: 20%">Fecha:</td>
                             <td class="auto-style12" style="width: 30%">
                                 <asp:TextBox ID="txtFecha" runat="server" CssClass="auto-style14" Width="90%" ReadOnly="True"></asp:TextBox>
                             </td>
@@ -27,7 +27,7 @@
                             <td class="auto-style15" style="width: 20%">Cliente:</td>
                             <td style="width: 30%">
                                 <asp:TextBox ID="txtCliente" runat="server" CssClass="auto-style14" Width="74%" ReadOnly="True"></asp:TextBox>
-                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton3" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="imgBtnBuscarCli" runat="server" ImageUrl="~/imagenes/Buscar.jpg" OnClick="imgBtnBuscarCli_Click" Visible="False"  />
                                 </span>
                             </td>
                             <td class="auto-style15" style="width: 20%">Nombre:</td>
@@ -72,7 +72,7 @@
         </tr>
         <tr>
             <td class="auto-style8">
-                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
+                    <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%" OnMenuItemClick="mnuOpciones_MenuItemClick">
                         <Items>
                             <asp:MenuItem Text="BuscarXNumero" Value="opcBuscarXNumero"></asp:MenuItem>
                             <asp:MenuItem Text="BuscarXCliente" Value="opcBuscarXCliente"></asp:MenuItem>
@@ -92,13 +92,13 @@
         </tr>
         <tr>
             <td class="auto-style16">
-                <asp:Panel ID="Panel2" runat="server" GroupingText="Producto" Visible="False">
+                <asp:Panel ID="pnlProducto" runat="server" GroupingText="Producto" Visible="False">
                     <table class="auto-style2">
                         <tr>
                             <td style="width: 20%">Codigo:</td>
                             <td style="width: 30%">
                                 <asp:TextBox ID="txtCodigo" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
-                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="imgBtnBuscarCod" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
                                 </span>
                             </td>
                             <td style="width: 20%">Producto:</td>
