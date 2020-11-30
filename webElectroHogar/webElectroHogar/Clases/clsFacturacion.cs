@@ -379,12 +379,14 @@ namespace webElectroHogar.Clases
             strSQL = "EXEC USP_Fac_Grabar_Agregar '" + Cliente + "'," + "'" + FormaPago + "'," + CodEmpleado + ";";
             if (!Grabar())
                 return false;
+            //Comienza RN
             float PorcDesc = -1;
-            BuscarTipoCliente(Cliente);
             clsOpDescuento oO = new clsOpDescuento();
             oO.intTipo = TipoCliente;
-            if (oO.Descuento())
-                PorcDesc = oO.fltDesc;
+            if(BuscarTipoCliente(Cliente)){
+                if (oO.Descuento())
+                    PorcDesc = oO.fltDesc;
+            }
             //Grabar el Detalle
             strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", "  + Cantidad + ", "
             + PorcDesc + ";";
@@ -392,6 +394,24 @@ namespace webElectroHogar.Clases
                 return false;
             return true;
         }
+
+        public bool ModificarMaestro()
+        {
+            if (Numero <= 0)
+            {
+                Error = "Nro. de Factura no Válido";
+                return false;
+            }
+            if (!ValidarDatosEncabezado())
+                return false;
+            strSQL = "EXEC USP_Fac_Grabar_Modificar " + Numero + "," +  FormaPago + "," + "'" + FechaEnt +
+            "'," + CodEmpleado + ";";
+            if (!Grabar())
+                return false;
+            return true;
+        }
+
+
         #endregion
     }
 }
