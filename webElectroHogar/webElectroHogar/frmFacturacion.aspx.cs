@@ -13,7 +13,7 @@ namespace webElectroHogar
         private static string strApp;
         private static int intOpcion;
         private DateTime dtmFecha, dtmFechaEnt;
-        private int intNumero, intFormaPago;
+        private int intNumero, intFormaPago, intCodigo, intCantidad;
         private float fltIVA, fltDesc, fltTotal;
         private string strCliente, strNombre, strEmpleado;
 
@@ -41,14 +41,19 @@ namespace webElectroHogar
                 this.txtCliente.ReadOnly = true;
                 this.imgBtnBuscarCli.Visible = false;
                 Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp);
-                if (!objXX.BuscarCliente_Factura(strCliente, this.grvDatos))
+                if (intOpcion == 0)
                 {
+                    if (!objXX.BuscarCliente_Factura(strCliente, this.grvDatos))
+                    {
+                        this.txtNombre.Text = objXX.Nombre;
+                        Mensaje(objXX.Error);
+                        objXX = null;
+                        return;
+                    }
+                }                
+                if(objXX.BuscarNombreCliente(this.txtCliente.Text.Trim()))
                     this.txtNombre.Text = objXX.Nombre;
-                    Mensaje(objXX.Error);
-                    objXX = null;
-                    return;
-                }
-                this.txtNombre.Text = objXX.Nombre;
+                this.grvDatos.Columns[0].Visible = false;
                 objXX = null;
             }
             catch (Exception ex)
@@ -111,6 +116,77 @@ namespace webElectroHogar
             LimpiarDetalle();
             this.grvDatos.DataSource = null;
             this.grvDatos.DataBind();
+            this.pnlProducto.Visible = false;
+        }
+
+        protected void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        protected void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            Mensaje(string.Empty);
+            if (intOpcion != 2)
+            {
+                Mensaje("Opción no válida");
+                return;
+            }
+            try
+            {
+                intNumero = Convert.ToInt32(this.txtNumero.Text);
+                intCodigo = Convert.ToInt32(this.txtCodigo.Text);
+                intCantidad = Convert.ToInt32(this.txtCant.Text);
+                Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp, intNumero, intCodigo, intCantidad);
+                if (!objXX.GrabarDetalle())
+                {
+                    Mensaje("Error -> " + objXX.Error);
+                    objXX = null;
+                    return;
+                }
+                //ibtnBuscarCaso_Click(null, null);
+                this.txtProducto.Text = string.Empty;
+                this.txtCant.Text = string.Empty;
+                //this.btnAdicionar.Visible = true;
+                imgBtnBuscarNum_Click(null,null);
+                Mensaje("Detalle grabado con éxito");
+                this.btnFinalizar.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Mensaje(ex.Message);
+            }
+        }
+
+        protected void imgBtnBuscarCod_Click(object sender, ImageClickEventArgs e)
+        {
+            try
+            {
+                Mensaje(string.Empty);
+                intCodigo = Convert.ToInt32(this.txtCodigo.Text.Trim());
+                if (intCodigo<100)
+                {
+                    Mensaje("Codigo no válido");
+                    this.txtCodigo.Focus();
+                    return;
+                }
+                this.txtCodigo.ReadOnly = true;
+                this.imgBtnBuscarCli.Visible = false;
+                Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp);
+                if (objXX.BuscarNombreProducto(intCodigo))
+                {
+                    this.txtProducto.Text = objXX.Producto;
+                    Mensaje(objXX.Error);
+                    objXX = null;
+                    return;
+                }
+                objXX = null;
+            }
+            catch (Exception ex)
+            {
+                Mensaje(ex.Message);
+                return;
+            }
         }
 
         private void LimpiarDetalle()
@@ -122,6 +198,7 @@ namespace webElectroHogar
 
         private void BuscarXNumero()
         {
+            this.grvDatos.Columns[0].Visible = true;
             Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp);
             if (!objXX.BuscarFactura(intNumero, this.grvDatos))
             {
@@ -139,9 +216,20 @@ namespace webElectroHogar
             this.txtDesc.Text = objXX.Desc.ToString();
             this.txtTotal.Text = objXX.Total.ToString();
             this.txtEmpleado.Text = objXX.Empleado;
+            if (intOpcion == 1 || intOpcion == 2)
+            {
+                this.imgBtnBuscarCod.Visible = true;
+                this.btnAdicionar.Visible = true;
+                this.pnlProducto.Visible = true;
+                this.pnlProducto.Enabled = true;
+                this.txtFechaEntr.ReadOnly = false;
+                this.txtFechaEntr.Enabled = true;
+                this.txtCodigo.Enabled = true;
+            }
+            
             objXX = null;
         }
-        /*
+        
         private void Grabar()
         {
             if (intOpcion != 1 && intOpcion != 2)
@@ -149,22 +237,20 @@ namespace webElectroHogar
                 Mensaje("Opción no válida, favor consultar con el Admón del Sistema");
                 return;
             }
-            intNumero = (intOpcion == 1) ? 0 : Convert.ToInt32(this.txtNroCaso.Text);
-            strNroDocAsoc = this.ddlAsociado.SelectedValue;
-            strNroDocCliente = this.txtNroDocCli.Text.Trim();
-            intTipoCaso = Convert.ToInt32(this.ddlTipoCaso.SelectedValue);
-            intCheckSelec = checksSelec();
+            intNumero = (intOpcion == 1) ? 0 : Convert.ToInt32(this.txtNumero.Text);
+            strCliente = this.txtCliente.Text;
+            intFormaPago = this.ddlFormaPago.SelectedIndex+1;
+            strNombre = this.txtCliente.Text;
+            //Traer codigo y nombre de empleado
+            
 
             if (intOpcion == 1) // Agregar
             {
                 dtmFecha = Convert.ToDateTime(this.txtFecha.Text);
-                intTipoSeg = Convert.ToInt32(this.rblSeguimiento.SelectedValue);
-                strDescrip = this.txtDescripcion.Text.Trim();
-                strObserv = this.txtObservaciones.Text.Trim();
-                Clases.clsCaso objXX1 = new Clases.clsCaso(
-                    strApp, intNroCaso, dtmFecha,
-                    strNroDocAsoc, strNroDocCliente, intTipoCaso,
-                    intTipoSeg, strDescrip, strObserv, intCheckSelec);
+                dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
+                
+                Clases.clsFacturacion objXX1 = new Clases.clsFacturacion(
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
 
                 if (!objXX1.grabarMaestro())
                 {
@@ -172,38 +258,71 @@ namespace webElectroHogar
                     objXX1 = null;
                     return;
                 }
-                intNroCaso = objXX1.NroCaso;
+                intNumero = objXX1.Numero;
                 objXX1 = null;
             }
             else // Modificar
             {
-                Clases.clsCaso objXX2 = new Clases.clsCaso(strApp, intNroCaso,
-                    strNroDocAsoc, strNroDocCliente, intTipoCaso, intCheckSelec);
+                dtmFecha = Convert.ToDateTime(this.txtFecha.Text);
+                dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
+                Clases.clsFacturacion objXX2 = new Clases.clsFacturacion(
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
                 if (!objXX2.ModificarMaestro())
                 {
                     Mensaje(objXX2.Error);
                     objXX2 = null;
                     return;
                 }
-                intNroCaso = objXX2.NroCaso;
+                intNumero = objXX2.Numero;
                 objXX2 = null;
             }
-            if (intNroCaso == 0)
+            if (intNumero == 0)
             {
                 Limpiar();
                 Mensaje("Error al grabar, favor consultar con el Admón del sistema");
                 return;
             }
-            this.txtNroCaso.Text = intNroCaso.ToString();
-            ibtnBuscarCaso_Click(null, null);
-            this.pnlCaso.Enabled = false;
-            this.txtNroDocCli.ReadOnly = true;
+            this.txtNumero.Text = intNumero.ToString();
+            imgBtnBuscarNum_Click(null, null);
+            this.pnlProducto.Enabled = false;
+            this.txtCliente.ReadOnly = true;
             LimpiarDetalle();
             Mensaje("Registro grabado con éxito");
-        }*/
+        }
 
+        private void BorrarRegistro(int Rgtro)
+        {
+            try
+            {
+                intNumero = Convert.ToInt32(this.txtNumero.Text);
+                Clases.clsFacturacion objX = new Clases.clsFacturacion(strApp);
+                if (!objX.BorrarDetalle(Rgtro, intNumero))
+                {
+                    Mensaje(objX.Error);
+                    objX = null;
+                    this.txtNumero.Focus();
+                    return;
+                }
+                int rpta = objX.Numero;
+                if (rpta == 0)
+                {
+                    Mensaje("Error al borrar el registro");
+                    objX = null;
+                    return;
+                }
+                objX = null;
+                Mensaje("Registro Borrado con éxito");
+                this.txtNumero.Text = intNumero.ToString();
+                BuscarXNumero();
+                return;
+            }
+            catch
+            {
+                Mensaje("Error en el grabar");
+                return;
+            }
+        }
         #endregion
-
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -228,22 +347,30 @@ namespace webElectroHogar
             switch (this.mnuOpciones.SelectedValue)
             {
                 case "opcAgregar":
-                    /*intOpcion = 1;
+                    intOpcion = 1;
                     Limpiar();
-                    this.txtNroDocCli.ReadOnly = false;
-                    this.txtNroDocCli.Enabled = true;
-                    this.ibtnBuscarCli.Visible = true;
-                    this.pnlCaso.Enabled = true;
-                    this.ddlAsociado.Focus();*/
+                    this.txtCliente.ReadOnly = false;
+                    this.txtCliente.Enabled = true;
+                    this.txtFechaEntr.ReadOnly = false;
+                    this.txtFechaEntr.Enabled = true;
+                    this.imgBtnBuscarCli.Visible = true;
+                    this.txtCliente.Focus();
+                    this.txtFecha.Text = DateTime.Today.Date.ToShortDateString();
                     break;
                 case "opcModificar":
-                    /*intOpcion = 2;
-                    this.pnlCaso.Enabled = true;
+                    intOpcion = 2;
+                    this.pnlProducto.Visible = true;
+                    this.pnlProducto.Enabled = true;
+                    this.imgBtnBuscarCod.Visible = true;
+                    this.txtCodigo.ReadOnly = false;
+                    this.txtCodigo.Enabled = true;
+                    this.txtNumero.ReadOnly = true;
                     this.btnAdicionar.Visible = true;
-                    this.ddlAsociado.Focus();*/
+                    this.txtNumero.Focus();
                     break;
                 case "opcBuscarXNumero":
                     intOpcion = 0;
+                    this.pnlProducto.Visible = false;
                     Limpiar();
                     this.txtNumero.ReadOnly = false;
                     this.imgBtnBuscarNum.Visible = true;
@@ -251,14 +378,27 @@ namespace webElectroHogar
                     break;
                 case "opcBuscarXCliente":
                     intOpcion = 0;
+                    this.pnlProducto.Visible = false;
                     Limpiar();
                     this.txtCliente.ReadOnly = false;
                     this.imgBtnBuscarCli.Visible = true;
                     this.txtCliente.Focus();
                     break;
                 case "opcGrabar":
-                    //Grabar();
-                    intOpcion = 0;
+                    Grabar();
+                    if (intOpcion == 1)
+                    {
+                        this.pnlProducto.Enabled = true;
+                        this.pnlProducto.Visible = true;
+                        this.imgBtnBuscarCod.Visible = true;
+                        this.txtNumero.ReadOnly = true;
+                        this.txtCodigo.Focus();
+                        intOpcion = 2;
+                    }
+                    else 
+                    {
+                        intOpcion = 0;
+                    }
                     break;
                 case "opcCancelar":
                     intOpcion = 0;
@@ -275,7 +415,27 @@ namespace webElectroHogar
 
         protected void grvDatos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int IdRgtro;
+            Mensaje(string.Empty);
+            try
+            {
+                int index = Convert.ToInt32(e.RowIndex);
+                if (index >= 0)
+                {
+                    IdRgtro = Convert.ToInt32(grvDatos.Rows[index].Cells[1].Text);
+                    if (IdRgtro > 0)
+                        BorrarRegistro(IdRgtro);
 
+                    else
+                        Mensaje("Sin Registro para ser Borrado");
+                }
+                else
+                    Mensaje("Sin Registro para ser Borrado");
+            }
+            catch (Exception ex)
+            {
+                Mensaje("Error : " + ex.Message); ;
+            }
         }
     }
 }

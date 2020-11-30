@@ -98,7 +98,7 @@
                             <td style="width: 20%">Codigo:</td>
                             <td style="width: 30%">
                                 <asp:TextBox ID="txtCodigo" runat="server" CssClass="auto-style14" Width="74%"></asp:TextBox>
-                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="imgBtnBuscarCod" runat="server" ImageUrl="~/imagenes/Buscar.jpg" />
+                                &nbsp;<span class="auto-style15"><asp:ImageButton ID="imgBtnBuscarCod" runat="server" ImageUrl="~/imagenes/Buscar.jpg" OnClick="imgBtnBuscarCod_Click" />
                                 </span>
                             </td>
                             <td style="width: 20%">Producto:</td>
@@ -120,7 +120,9 @@
         </tr>
         <tr>
             <td class="auto-style17">
-                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" />
+                <asp:Button ID="btnFinalizar" runat="server" Text="Finalizar" OnClick="btnFinalizar_Click" Visible="False"  />
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnAdicionar" runat="server" Text="Adicionar" OnClick="btnAdicionar_Click" Visible="False" />
             </td>
         </tr>
         <tr>
