@@ -58,6 +58,10 @@
     <Reference Include="libLlenarRBList">
       <HintPath>..\..\LibreriasComunes\libLlenarRBList\libLlenarRBList\bin\Debug\libLlenarRBList.dll</HintPath>
     </Reference>
+    <Reference Include="libOpDescuento, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ClasesFinalProgramacion\libOpDescuento\libOpDescuento\bin\Debug\libOpDescuento.dll</HintPath>
+    </Reference>
     <Reference Include="libParametros">
       <HintPath>..\..\LibreriasComunes\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
     </Reference>
@@ -101,6 +105,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\clsClasificacion.cs" />
+    <Compile Include="Clases\clsFacturacion.cs" />
     <Compile Include="Clases\clsFormaPago.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsProductos.cs" />

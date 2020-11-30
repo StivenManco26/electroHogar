@@ -19,7 +19,8 @@ namespace webElectroHogar
 
         #endregion
 
-        #region "Méetodos Personales"
+        #region "Métodos Personales"
+
         private void Mensaje(string Texto)
         {
             this.lblMsj.Text = Texto.Trim();
@@ -65,6 +66,7 @@ namespace webElectroHogar
             this.txtProducto.Text = string.Empty;
             this.txtCant.Text = string.Empty;
         }
+
         #endregion
 
 

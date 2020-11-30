@@ -74,7 +74,8 @@
             <td class="auto-style8">
                     <asp:Menu ID="mnuOpciones" runat="server" BorderStyle="Solid" BorderWidth="2px" DynamicHorizontalOffset="2" Font-Bold="True" Font-Names="Century Gothic" Font-Size="Small" Orientation="Horizontal" RenderingMode="Table" Width="100%">
                         <Items>
-                            <asp:MenuItem Text="Buscar" Value="opcBuscar"></asp:MenuItem>
+                            <asp:MenuItem Text="BuscarXNumero" Value="opcBuscarXNumero"></asp:MenuItem>
+                            <asp:MenuItem Text="BuscarXCliente" Value="opcBuscarXCliente"></asp:MenuItem>
                             <asp:MenuItem Text="Agregar" Value="opcAgregar"></asp:MenuItem>
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
@@ -91,7 +92,7 @@
         </tr>
         <tr>
             <td class="auto-style16">
-                <asp:Panel ID="Panel2" runat="server" GroupingText="Producto">
+                <asp:Panel ID="Panel2" runat="server" GroupingText="Producto" Visible="False">
                     <table class="auto-style2">
                         <tr>
                             <td style="width: 20%">Codigo:</td>
