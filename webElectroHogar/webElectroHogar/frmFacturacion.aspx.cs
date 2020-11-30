@@ -290,6 +290,38 @@ namespace webElectroHogar
             Mensaje("Registro grabado con éxito");
         }
 
+        private void BorrarRegistro(int Rgtro)
+        {
+            try
+            {
+                intNumero = Convert.ToInt32(this.txtNumero.Text);
+                Clases.clsFacturacion objX = new Clases.clsFacturacion(strApp);
+                if (!objX.BorrarDetalle(Rgtro, intNumero))
+                {
+                    Mensaje(objX.Error);
+                    objX = null;
+                    this.txtNumero.Focus();
+                    return;
+                }
+                int rpta = objX.Numero;
+                if (rpta == 0)
+                {
+                    Mensaje("Error al borrar el registro");
+                    objX = null;
+                    return;
+                }
+                objX = null;
+                Mensaje("Registro Borrado con éxito");
+                this.txtNumero.Text = intNumero.ToString();
+                BuscarXNumero();
+                return;
+            }
+            catch
+            {
+                Mensaje("Error en el grabar");
+                return;
+            }
+        }
         #endregion
 
 
@@ -383,7 +415,27 @@ namespace webElectroHogar
 
         protected void grvDatos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            int IdRgtro;
+            Mensaje(string.Empty);
+            try
+            {
+                int index = Convert.ToInt32(e.RowIndex);
+                if (index >= 0)
+                {
+                    IdRgtro = Convert.ToInt32(grvDatos.Rows[index].Cells[1].Text);
+                    if (IdRgtro > 0)
+                        BorrarRegistro(IdRgtro);
 
+                    else
+                        Mensaje("Sin Registro para ser Borrado");
+                }
+                else
+                    Mensaje("Sin Registro para ser Borrado");
+            }
+            catch (Exception ex)
+            {
+                Mensaje("Error : " + ex.Message); ;
+            }
         }
     }
 }
