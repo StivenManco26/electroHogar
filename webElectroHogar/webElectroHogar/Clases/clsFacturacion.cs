@@ -145,7 +145,7 @@ namespace webElectroHogar.Clases
             }
             if (FormaPago <= 0)
             {
-                Error = "Falta el tipo del caso";
+                Error = "Falta la forma de pago de la factura";
                 return false;
             }
             return true;
@@ -297,7 +297,7 @@ namespace webElectroHogar.Clases
         {
             try
             {
-                strSQL = "EXEC USP_Caso_BorrarDetalle " + Factura + " , " + Seq + "; ";
+                strSQL = "EXEC USP_Fac_BorrarDetalle " + Factura + " , " + Seq + "; ";
                 if (Grabar())
                 {
                     Numero = Factura;
@@ -312,13 +312,13 @@ namespace webElectroHogar.Clases
             }
         }
 
-        public bool BuscarCaso(int Factura, GridView grid)
+        public bool BuscarFactura(int Factura, GridView grid)
         {
             try
             {
                 if (Factura <= 0 || grid == null)
                 {
-                    Error = "Nro. de Caso no Válido";
+                    Error = "Nro. de Factura no Válido";
                     return false;
                 }
                 strSQL = "EXEC USP_Fac_BuscarXNumero " + Factura + ";";
@@ -336,7 +336,7 @@ namespace webElectroHogar.Clases
                 Mydt = Myds.Tables[0];
                 if (Mydt.Rows.Count <= 0)
                 {
-                    Error = "No existe el caso nro.: " + Factura;
+                    Error = "No existe la factura nro.: " + Factura;
                     Myds.Clear();
                     Myds = null;
                     return false;
@@ -411,7 +411,7 @@ namespace webElectroHogar.Clases
             return true;
         }
 
-        public bool BuscarCliente_Casos(string NroDocCliente, GridView grid)
+        public bool BuscarCliente_Factura(string NroDocCliente, GridView grid)
         {
             try
             {
@@ -433,7 +433,7 @@ namespace webElectroHogar.Clases
                     Mydt = Myds.Tables[0];
                     if (Mydt.Rows.Count <= 0)
                     {
-                        Error = "No existen casos para el cliente con Nro. Doc.: " + NroDocCliente;
+                        Error = "No existen facturas para el cliente con Nro. Doc.: " + NroDocCliente;
                         Myds.Clear();
                         Myds = null;
                         return false;
@@ -469,7 +469,7 @@ namespace webElectroHogar.Clases
                     return false;
                 if (Numero <= 0)
                 {
-                    Error = "Nro. de Caso no Válido";
+                    Error = "Nro. de Factura no Válido";
                     return false;
                 }
                 strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", " + Cantidad + ", " +

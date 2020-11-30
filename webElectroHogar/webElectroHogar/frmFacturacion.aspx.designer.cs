@@ -33,13 +33,13 @@ namespace webElectroHogar
         protected global::System.Web.UI.WebControls.TextBox txtNumero;
 
         /// <summary>
-        /// Control ImageButton1.
+        /// Control imgBtnBuscarNum.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnBuscarNum;
 
         /// <summary>
         /// Control txtFecha.
@@ -60,13 +60,13 @@ namespace webElectroHogar
         protected global::System.Web.UI.WebControls.TextBox txtCliente;
 
         /// <summary>
-        /// Control ImageButton3.
+        /// Control imgBtnBuscarCli.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton3;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnBuscarCli;
 
         /// <summary>
         /// Control txtNombre.
@@ -141,13 +141,13 @@ namespace webElectroHogar
         protected global::System.Web.UI.WebControls.Menu mnuOpciones;
 
         /// <summary>
-        /// Control Panel2.
+        /// Control pnlProducto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel2;
+        protected global::System.Web.UI.WebControls.Panel pnlProducto;
 
         /// <summary>
         /// Control txtCodigo.
@@ -159,13 +159,13 @@ namespace webElectroHogar
         protected global::System.Web.UI.WebControls.TextBox txtCodigo;
 
         /// <summary>
-        /// Control ImageButton2.
+        /// Control imgBtnBuscarCod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.ImageButton imgBtnBuscarCod;
 
         /// <summary>
         /// Control txtProducto.

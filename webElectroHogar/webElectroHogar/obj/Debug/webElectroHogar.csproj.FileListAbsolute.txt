@@ -140,3 +140,7 @@ D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarCombos
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarGrids.pdb
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libLlenarRBList.pdb
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libParametros.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libOpDescuento.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libRnDescuento.dll
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libOpDescuento.pdb
+D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libRnDescuento.pdb
