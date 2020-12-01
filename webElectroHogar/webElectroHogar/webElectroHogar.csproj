@@ -96,11 +96,13 @@
     <Content Include="frmProductos.aspx" />
     <Content Include="frmLogin.aspx" />
     <Content Include="frmInicio.aspx" />
+    <Content Include="frmSplash.aspx" />
     <Content Include="frmUsuarios.aspx" />
     <Content Include="Global.asax" />
     <Content Include="imagenes\Buscar.jpg" />
     <Content Include="imagenes\error.ico" />
     <Content Include="imagenes\logo.png" />
+    <Content Include="imagenes\splash.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -155,6 +157,13 @@
     </Compile>
     <Compile Include="frmPrincipal.Master.designer.cs">
       <DependentUpon>frmPrincipal.Master</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplash.aspx.cs">
+      <DependentUpon>frmSplash.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="frmSplash.aspx.designer.cs">
+      <DependentUpon>frmSplash.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmUsuarios.aspx.cs">
       <DependentUpon>frmUsuarios.aspx</DependentUpon>

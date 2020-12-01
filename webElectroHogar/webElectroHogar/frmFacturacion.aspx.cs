@@ -117,6 +117,7 @@ namespace webElectroHogar
             this.grvDatos.DataSource = null;
             this.grvDatos.DataBind();
             this.pnlProducto.Visible = false;
+            this.btnFinalizar.Visible = false;
         }
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
