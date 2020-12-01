@@ -414,10 +414,6 @@ namespace webElectroHogar.Clases
             if (!Grabar())
                 return false;
             
-            //Grabar el Detalle
-            //strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", "  + Cantidad + ", "+ PorcDesc + ";";
-            //if (!Grabar())
-                //return false;
             return true;
         }
 
