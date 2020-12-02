@@ -94,11 +94,6 @@ namespace webElectroHogar.Clases
                 Error = "Falta el IVA";
                 return false;
             }
-            /*if (iva.ToString().Contains(","))
-            {
-                Error = "Error formato de IVA no debe contener ','";
-                return false;
-            }*/
             return true;
         }
 
@@ -188,7 +183,7 @@ namespace webElectroHogar.Clases
             if (!validarDatos())
                 return false;
             strSQL = "EXEC USP_Prod_Grabar '" + descripcion + "', " + Math.Truncate(valorUnitario) + ", "
-                + iva.ToString().Replace(',','.') + ", " + clasificacion + ", 1111;";
+                + iva.ToString().Replace(',','.') + ", " + clasificacion + ", " + codEmpleado + ";";
             return Grabar();
             //EXEC USP_Prod_Grabar 'MOTOROLA MOTO ONE 32GB', '460000', 0.19, 3, 1111
         }
@@ -197,7 +192,7 @@ namespace webElectroHogar.Clases
             if (!validarDatos())
                 return false;
             strSQL = "EXEC USP_Prod_Modificar " + codigo + ", " + "'" + descripcion + "', " + 
-                Math.Truncate(valorUnitario) + ", " + iva.ToString().Replace(',', '.') + ", " + clasificacion + ", 1111;";
+                Math.Truncate(valorUnitario) + ", " + iva.ToString().Replace(',', '.') + ", " + clasificacion + ", " + codEmpleado + ";";
             return Grabar();
             //EXEC USP_Prod_Modificar 100,'LG SMARTV 32', 2000000, 0.19, 1, 1111
         }

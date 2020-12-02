@@ -10,6 +10,7 @@ namespace webElectroHogar
     public partial class Formulario_web13 : System.Web.UI.Page
     {
         #region "Variables Globales"
+        static string codigoUsu, nombreUsu;
         private static string strApp;
         private static int intOpcion;
         private DateTime dtmFecha, dtmFechaEnt;
@@ -263,7 +264,7 @@ namespace webElectroHogar
                 dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
                 
                 Clases.clsFacturacion objXX1 = new Clases.clsFacturacion(
-                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, Convert.ToInt32(codigoUsu));
 
                 if (!objXX1.grabarMaestro())
                 {
@@ -288,7 +289,7 @@ namespace webElectroHogar
                 dtmFecha = Convert.ToDateTime(this.txtFecha.Text);
                 dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
                 Clases.clsFacturacion objXX2 = new Clases.clsFacturacion(
-                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, Convert.ToInt32(codigoUsu));
                 if (!objXX2.ModificarMaestro())
                 {
                     Mensaje(objXX2.Error);
@@ -351,6 +352,11 @@ namespace webElectroHogar
         {
             if (!IsPostBack)
             {
+                codigoUsu = Session["codigo"].ToString();
+                if (string.IsNullOrEmpty(codigoUsu))
+                    Response.Redirect("frmLogin.aspx");
+                nombreUsu = Session["empleado"].ToString();
+                this.lblUsu.Text = "Usuario: " + nombreUsu;
                 strApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
                 llenarComboFormaPago();
                 this.ddlFormaPago.SelectedIndex = 0;

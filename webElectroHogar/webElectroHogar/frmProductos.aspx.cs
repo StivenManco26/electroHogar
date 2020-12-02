@@ -10,6 +10,7 @@ namespace webElectroHogar
     public partial class Formulario_web12 : System.Web.UI.Page
     {
         #region "Variables Globales"
+        static string codigoUsu, nombreUsu;
         private static string strApp;
         private static int intOpcion;
         private static int intCodigo;
@@ -17,7 +18,6 @@ namespace webElectroHogar
         private static decimal dcmlValorUnitario;
         private static double dblIva;
         private static int intClasificacion;
-        private static int intCodEmpleado;
 
         #endregion
 
@@ -72,6 +72,11 @@ namespace webElectroHogar
         {
             if (!IsPostBack)
             {
+                codigoUsu = Session["codigo"].ToString();
+                if (string.IsNullOrEmpty(codigoUsu))
+                    Response.Redirect("frmLogin.aspx");
+                nombreUsu = Session["empleado"].ToString();
+                this.lblUsu.Text = "Usuario: " + nombreUsu;
                 strApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
                 intOpcion = 0;
                 llenarComboClasific();
@@ -122,7 +127,7 @@ namespace webElectroHogar
                 dblIva = Convert.ToDouble(this.txtIva.Text.Replace(".", ","));
                 intClasificacion = this.ddlClasificacion.SelectedIndex+1;
                 Clases.clsProductos objXX = new Clases.clsProductos(strApp, intCodigo,
-                strDescripcion, dcmlValorUnitario, dblIva, intClasificacion);
+                strDescripcion, dcmlValorUnitario, dblIva, intClasificacion, Convert.ToInt32(codigoUsu));
                 if (intOpcion == 1) // Agregar
                 {
                     if (!objXX.grabarMaestro())
@@ -238,7 +243,6 @@ namespace webElectroHogar
             {
                 Mensaje(string.Empty);
                 intCodigo = Convert.ToInt32(this.txtCodigo.Text.Trim());
-                //if (string.IsNullOrEmpty(intCodigo.ToString()))
                 if (intCodigo < 100)
                 {
                     Mensaje("Código de producto no válido");
