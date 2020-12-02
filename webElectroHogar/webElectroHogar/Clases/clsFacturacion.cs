@@ -108,12 +108,13 @@ namespace webElectroHogar.Clases
         }
 
         //Constructor Detalle
-        public clsFacturacion(string Aplicacion, int numero, int codigo, float cantidad)
+        public clsFacturacion(string Aplicacion, int numero, int codigo, float cantidad, string cliente)
         {
             strApp = Aplicacion;
             Numero = numero;
             Codigo = codigo;
             Cantidad = cantidad;
+            Cliente = cliente;
             strSQL = string.Empty;
             Error = string.Empty;
         }
@@ -130,7 +131,7 @@ namespace webElectroHogar.Clases
             }
             if (Fecha > FechaEnt)
             {
-                Error = "Fecha de entegra no válida";
+                Error = "Fecha de entrega no válida";
                 return false;
             }
             if (string.IsNullOrEmpty(Cliente))
@@ -389,7 +390,7 @@ namespace webElectroHogar.Clases
                 MyReader = objCnx.dataReaderLleno;
                 if (!MyReader.HasRows)
                 {
-                    Error = "No existe registro con el Documento: " + Codigo;
+                    Error = "No existe registro con el Codigo: " + Codigo;
                     objCnx.cerrarCnx();
                     objCnx = null;
                     return false;
@@ -496,16 +497,20 @@ namespace webElectroHogar.Clases
                 }
                 //Comienza RN
                 float PorcDesc = -1;
-                clsOpDescuento oO = new clsOpDescuento();
-                oO.intTipo = TipoCliente;
-                oO.intCant = Convert.ToInt32(Cantidad);
+                
+                //oO.intTipo = TipoCliente;
+                //oO.intCant = Convert.ToInt32(Cantidad);
                 if (BuscarTipoCliente(Cliente))
                 {
-                    if (oO.Descuento())
-                        PorcDesc = oO.fltDesc;
+                    if (TipoCliente == 2)
+                    {
+                        clsOpDescuento oO = new clsOpDescuento(TipoCliente, Convert.ToInt32(Cantidad));
+                        if (oO.Descuento())
+                            PorcDesc = oO.fltDesc;
+                    }                    
                 }
                 strSQL = "EXEC USP_Fac_GrabarDetalle " + Numero + ", " + Codigo + ", " + Cantidad + ", " +
-                PorcDesc + ";";
+                PorcDesc.ToString().Replace(',', '.') + ";";
                 if (!Grabar())
                     return false;
                 return true;

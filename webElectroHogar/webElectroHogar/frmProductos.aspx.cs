@@ -220,6 +220,19 @@ namespace webElectroHogar
                     break;
                 case "opcImprimir":
                     intOpcion = 0;
+                    if (string.IsNullOrEmpty(this.txtCodigo.Text))
+                    {
+                        Mensaje("Debe ingresar un Código de Producto Válido");
+                        return;
+                    }
+                    intCodigo = Convert.ToInt32(this.txtCodigo.Text);
+                    if (intCodigo<99)
+                    {
+                        Mensaje("Código de Producto no Válido");
+                        return;
+                    }
+                    Session["CodProd"] = intCodigo;
+                    Response.Redirect("infoProducto.aspx");
                     break;
             }
         }

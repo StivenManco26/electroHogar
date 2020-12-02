@@ -134,12 +134,18 @@ namespace webElectroHogar
                 Mensaje("Opción no válida");
                 return;
             }
+            if (string.IsNullOrEmpty(this.txtProducto.Text))
+            {
+                Mensaje("Producto no válido");
+                return;
+            }
             try
             {
                 intNumero = Convert.ToInt32(this.txtNumero.Text);
                 intCodigo = Convert.ToInt32(this.txtCodigo.Text);
                 intCantidad = Convert.ToInt32(this.txtCant.Text);
-                Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp, intNumero, intCodigo, intCantidad);
+                strCliente = this.txtCliente.Text.ToString();
+                Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp, intNumero, intCodigo, intCantidad, strCliente);
                 if (!objXX.GrabarDetalle())
                 {
                     Mensaje("Error -> " + objXX.Error);
@@ -149,10 +155,13 @@ namespace webElectroHogar
                 //ibtnBuscarCaso_Click(null, null);
                 this.txtProducto.Text = string.Empty;
                 this.txtCant.Text = string.Empty;
+                this.txtCodigo.Text = string.Empty;
+                this.txtCodigo.ReadOnly = false;
                 //this.btnAdicionar.Visible = true;
                 imgBtnBuscarNum_Click(null,null);
                 Mensaje("Detalle grabado con éxito");
                 this.btnFinalizar.Visible = true;
+                this.txtCant.ReadOnly = false;
             }
             catch (Exception ex)
             {
@@ -175,18 +184,21 @@ namespace webElectroHogar
                 this.txtCodigo.ReadOnly = true;
                 this.imgBtnBuscarCli.Visible = false;
                 Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp);
-                if (objXX.BuscarNombreProducto(intCodigo))
+                if (!objXX.BuscarNombreProducto(intCodigo))
                 {
-                    this.txtProducto.Text = objXX.Producto;
+                    this.txtCodigo.ReadOnly = false;
                     Mensaje(objXX.Error);
                     objXX = null;
                     return;
                 }
+                this.txtProducto.Text = objXX.Producto;
+                this.txtCant.ReadOnly = false;
                 objXX = null;
             }
             catch (Exception ex)
             {
                 Mensaje(ex.Message);
+                this.txtCodigo.ReadOnly = true;
                 return;
             }
         }
@@ -262,6 +274,15 @@ namespace webElectroHogar
                 }
                 intNumero = objXX1.Numero;
                 objXX1 = null;
+                this.pnlProducto.Enabled = true;
+                this.pnlProducto.Visible = true;
+                this.imgBtnBuscarCod.Visible = true;
+                this.txtNumero.ReadOnly = true;
+                this.txtCodigo.Enabled = true;
+                this.txtCodigo.ReadOnly = false;
+                this.txtCodigo.Focus();
+                this.btnAdicionar.Visible = true;
+                intOpcion = 2;
             }
             else // Modificar
             {
@@ -286,7 +307,7 @@ namespace webElectroHogar
             }
             this.txtNumero.Text = intNumero.ToString();
             imgBtnBuscarNum_Click(null, null);
-            this.pnlProducto.Enabled = false;
+            //this.pnlProducto.Enabled = false;
             this.txtCliente.ReadOnly = true;
             LimpiarDetalle();
             Mensaje("Registro grabado con éxito");
@@ -393,19 +414,6 @@ namespace webElectroHogar
                     break;
                 case "opcGrabar":
                     Grabar();
-                    if (intOpcion == 1)
-                    {
-                        this.pnlProducto.Enabled = true;
-                        this.pnlProducto.Visible = true;
-                        this.imgBtnBuscarCod.Visible = true;
-                        this.txtNumero.ReadOnly = true;
-                        this.txtCodigo.Focus();
-                        intOpcion = 2;
-                    }
-                    else 
-                    {
-                        intOpcion = 0;
-                    }
                     break;
                 case "opcCancelar":
                     intOpcion = 0;
@@ -413,6 +421,22 @@ namespace webElectroHogar
                     break;
                 case "opcImprimir":
                     intOpcion = 0;
+                    try
+                    {
+                        intNumero = Convert.ToInt32(this.txtNumero.Text);
+                        if (intNumero <= 0)
+                        {
+                            Mensaje("Nro. de Factura no válido");
+                            return;
+                        }
+                        Session["NroFac"] = intNumero;
+                        Response.Redirect("infoFactura.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        Mensaje(ex.Message);
+                        return;
+                    }
                     break;
                 default:
                     Mensaje("Opción no válida");
