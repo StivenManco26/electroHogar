@@ -16,13 +16,13 @@
                     <tr>
                         <td style="width: 40%"><strong>Usuario:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox1" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtUsuario" runat="server" Width="80%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
                         <td style="width: 40%"><strong>Contraseña:</strong></td>
                         <td>
-                            <asp:TextBox ID="TextBox2" runat="server" Width="80%"></asp:TextBox>
+                            <asp:TextBox ID="txtClave" runat="server" Width="80%" TextMode="Password"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -33,7 +33,7 @@
         </tr>
         <tr>
             <td class="auto-style8">
-                <asp:Button ID="Button1" runat="server" Text="Ingresar" />
+                <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
             </td>
         </tr>
         <tr>

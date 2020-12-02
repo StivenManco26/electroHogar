@@ -110,6 +110,7 @@
     <Compile Include="Clases\clsFacturacion.cs" />
     <Compile Include="Clases\clsFormaPago.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
+    <Compile Include="Clases\clsLogin.cs" />
     <Compile Include="Clases\clsProductos.cs" />
     <Compile Include="frmClientes.aspx.cs">
       <DependentUpon>frmClientes.aspx</DependentUpon>

@@ -144,3 +144,6 @@ D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libOpDescuento.
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libRnDescuento.dll
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libOpDescuento.pdb
 D:\Desktop\FinalProgramacion\webElectroHogar\webElectroHogar\bin\libRnDescuento.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libRnDescuento.dll
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libOpDescuento.pdb
+C:\Users\manco\Desktop\proyecto final\webElectroHogar\webElectroHogar\bin\libRnDescuento.pdb

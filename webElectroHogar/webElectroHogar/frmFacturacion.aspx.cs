@@ -10,6 +10,7 @@ namespace webElectroHogar
     public partial class Formulario_web13 : System.Web.UI.Page
     {
         #region "Variables Globales"
+        static string codigoUsu, nombreUsu;
         private static string strApp;
         private static int intOpcion;
         private DateTime dtmFecha, dtmFechaEnt;
@@ -213,9 +214,9 @@ namespace webElectroHogar
             this.txtNombre.Text = objXX.Nombre;
             this.ddlFormaPago.SelectedValue = objXX.FormaPago.ToString();
             this.txtFechaEntr.Text = objXX.FechaEnt.ToShortDateString();
-            this.txtIVA.Text = objXX.IVA.ToString();
-            this.txtDesc.Text = objXX.Desc.ToString();
-            this.txtTotal.Text = objXX.Total.ToString();
+            this.txtIVA.Text = objXX.IVA.ToString("C2");
+            this.txtDesc.Text = objXX.Desc.ToString("C2");
+            this.txtTotal.Text = objXX.Total.ToString("C2");
             this.txtEmpleado.Text = objXX.Empleado;
             if (intOpcion == 1 || intOpcion == 2)
             {
@@ -251,7 +252,7 @@ namespace webElectroHogar
                 dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
                 
                 Clases.clsFacturacion objXX1 = new Clases.clsFacturacion(
-                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, Convert.ToInt32(codigoUsu));
 
                 if (!objXX1.grabarMaestro())
                 {
@@ -267,7 +268,7 @@ namespace webElectroHogar
                 dtmFecha = Convert.ToDateTime(this.txtFecha.Text);
                 dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
                 Clases.clsFacturacion objXX2 = new Clases.clsFacturacion(
-                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, 1111);
+                    strApp, dtmFecha, dtmFechaEnt, intNumero, strCliente, intFormaPago, Convert.ToInt32(codigoUsu));
                 if (!objXX2.ModificarMaestro())
                 {
                     Mensaje(objXX2.Error);
@@ -297,7 +298,7 @@ namespace webElectroHogar
             {
                 intNumero = Convert.ToInt32(this.txtNumero.Text);
                 Clases.clsFacturacion objX = new Clases.clsFacturacion(strApp);
-                if (!objX.BorrarDetalle(Rgtro, intNumero))
+                if (!objX.BorrarDetalle(intNumero, Rgtro))
                 {
                     Mensaje(objX.Error);
                     objX = null;
@@ -330,6 +331,11 @@ namespace webElectroHogar
         {
             if (!IsPostBack)
             {
+                codigoUsu = Session["codigo"].ToString();
+                if (string.IsNullOrEmpty(codigoUsu))
+                    Response.Redirect("frmLogin.aspx");
+                nombreUsu = Session["empleado"].ToString();
+                this.lblUsu.Text = "Usuario: " + nombreUsu;
                 strApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
                 llenarComboFormaPago();
                 this.ddlFormaPago.SelectedIndex = 0;

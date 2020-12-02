@@ -3,6 +3,11 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Cuerpo" runat="server">
     <table align="center" class="auto-style7">
         <tr>
+            <td class="auto-style18">
+                <asp:Label ID="lblUsu" runat="server" CssClass="auto-style19" ForeColor="Red"></asp:Label>
+            </td>
+        </tr>
+        <tr>
             <td class="auto-style8"><strong>Facturación</strong></td>
         </tr>
         <tr>
@@ -197,6 +202,13 @@
             font-size: medium;
             height: 22px;
             text-align: right;
+        }
+        .auto-style18 {
+            font-size: medium;
+            text-align: right;
+        }
+        .auto-style19 {
+            font-size: small;
         }
     </style>
 </asp:Content>
