@@ -66,6 +66,27 @@
       <HintPath>..\..\LibreriasComunes\libParametros\libParametros\bin\Debug\libParametros.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebDesign, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.WebDesign.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.WebForms.150.1427.0\lib\net40\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -90,6 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CON_WebElectroHogar.xml" />
+    <Content Include="infoFactura.aspx" />
+    <Content Include="infoProducto.aspx" />
     <Content Include="frmClientes.aspx" />
     <Content Include="frmEmpleados.aspx" />
     <Content Include="frmFacturacion.aspx" />
@@ -103,6 +126,19 @@
     <Content Include="imagenes\error.ico" />
     <Content Include="imagenes\logo.png" />
     <Content Include="imagenes\splash.jpg" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -111,6 +147,30 @@
     <Compile Include="Clases\clsFormaPago.cs" />
     <Compile Include="Clases\clsGenerales.cs" />
     <Compile Include="Clases\clsProductos.cs" />
+    <Compile Include="Datos\DataFactura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataFactura.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Datos\DataProducto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataProducto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="infoFactura.aspx.cs">
+      <DependentUpon>infoFactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="infoFactura.aspx.designer.cs">
+      <DependentUpon>infoFactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="infoProducto.aspx.cs">
+      <DependentUpon>infoProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="infoProducto.aspx.designer.cs">
+      <DependentUpon>infoProducto.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmClientes.aspx.cs">
       <DependentUpon>frmClientes.aspx</DependentUpon>
     </Compile>
@@ -175,9 +235,32 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="frmPrincipal.Master" />
+    <Content Include="Datos\DataProducto.xsc">
+      <DependentUpon>DataProducto.xsd</DependentUpon>
+    </Content>
+    <Content Include="Datos\DataFactura.xsc">
+      <DependentUpon>DataFactura.xsd</DependentUpon>
+    </Content>
+    <None Include="Datos\DataFactura.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataFactura.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Datos\DataFactura.xss">
+      <DependentUpon>DataFactura.xsd</DependentUpon>
+    </Content>
+    <None Include="Datos\DataProducto.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataProducto.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Datos\DataProducto.xss">
+      <DependentUpon>DataProducto.xsd</DependentUpon>
+    </Content>
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -189,6 +272,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="rpteFactura.rdlc" />
+    <EmbeddedResource Include="rpteProducto.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

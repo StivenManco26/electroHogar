@@ -41,7 +41,7 @@
                 <asp:Panel ID="Panel1" runat="server">
                     <table class="auto-style10">
                         <tr>
-                            <td class="auto-style20">&nbsp;</td>
+                            <td class="auto-style20">Nombre:</td>
                             <td class="auto-style21"><strong>
                                 <asp:TextBox ID="TextBox2" runat="server" CssClass="auto-style17" Width="244px"></asp:TextBox>
                                 </strong></td>

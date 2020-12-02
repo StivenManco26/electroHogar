@@ -59,6 +59,7 @@
                             <asp:MenuItem Text="Modificar" Value="opcModificar"></asp:MenuItem>
                             <asp:MenuItem Text="Grabar" Value="opcGrabar"></asp:MenuItem>
                             <asp:MenuItem Text="Cancelar" Value="opcCancelar"></asp:MenuItem>
+                            <asp:MenuItem Text="Imprimir" Value="opcImprimir"></asp:MenuItem>
                         </Items>
                         <StaticHoverStyle BorderStyle="Solid" BorderWidth="2px" ForeColor="Black" />
                         <StaticMenuItemStyle HorizontalPadding="20px" />

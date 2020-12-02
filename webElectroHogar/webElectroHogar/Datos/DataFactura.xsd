@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema id="dsFactura" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+  <xs:element name="dsFactura" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbEncabFac">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NroFac" type="xs:int" minOccurs="0" />
+              <xs:element name="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="FechaEntr" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoDoc" type="xs:string" minOccurs="0" />
+              <xs:element name="NroDoc" type="xs:string" minOccurs="0" />
+              <xs:element name="Nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="TipoCli" type="xs:string" minOccurs="0" />
+              <xs:element name="Descuento" type="xs:decimal" minOccurs="0" />
+              <xs:element name="IVA" type="xs:decimal" minOccurs="0" />
+              <xs:element name="TOTAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Usuario" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbDetaFac">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Consec" type="xs:int" minOccurs="0" />
+              <xs:element name="Producto" type="xs:int" minOccurs="0" />
+              <xs:element name="Descripción" type="xs:string" minOccurs="0" />
+              <xs:element name="Cantidad" type="xs:double" minOccurs="0" />
+              <xs:element name="ValorUnitario" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Valor" type="xs:double" minOccurs="0" />
+              <xs:element name="ValorDescuento" type="xs:double" minOccurs="0" />
+              <xs:element name="ValorIVA" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
