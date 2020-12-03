@@ -121,7 +121,6 @@ namespace webElectroHogar
                     return;
                 }
                 intCodigo = (intOpcion == 1) ? 0 : Convert.ToInt32(this.txtCodigo.Text);
-                //intCodigo = Convert.ToInt32(this.txtCodigo.Text.Trim());
                 strDescripcion = this.txtDescripcion.Text.Trim();
                 dcmlValorUnitario = Convert.ToDecimal(this.txtValorUn.Text);
                 dblIva = Convert.ToDouble(this.txtIva.Text.Replace(".", ","));
@@ -168,8 +167,6 @@ namespace webElectroHogar
         protected void mnuOpciones_MenuItemClick(object sender, MenuEventArgs e)
         {
             Mensaje(string.Empty);
-            //this.imgButtonBuscar.Visible = false;
-            //this.txtCodigo.ReadOnly = true;
             switch (this.mnuOpciones.SelectedValue)
             {
                 case "opcAgregar":

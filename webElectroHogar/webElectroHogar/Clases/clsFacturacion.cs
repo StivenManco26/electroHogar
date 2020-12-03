@@ -310,7 +310,7 @@ namespace webElectroHogar.Clases
                     return false;
                 }
                 DataRow dr = Mydt.Rows[0];
-                Numero = Convert.ToInt32(dr["Numero"]); // ó dr[0]
+                Numero = Convert.ToInt32(dr["Numero"]); 
                 Fecha = Convert.ToDateTime(dr["Fecha"]);
                 Cliente = dr["Cliente"].ToString();
                 Nombre = dr["Nombre"].ToString();
@@ -408,10 +408,10 @@ namespace webElectroHogar.Clases
         }
         public bool grabarMaestro()
         {
-            if (!ValidarDatosEncabezado()) //|| !ValidarDatosDetalle())
+            if (!ValidarDatosEncabezado())
                 return false;
             //Grabar el encabezado
-            strSQL = "EXEC USP_Fac_Grabar_Agregar '" + Cliente + "'," + "'" + FormaPago + "'," + CodEmpleado + ";";
+            strSQL = "EXEC USP_Fac_Grabar_Agregar '" + Cliente + "',"  + FormaPago + "," + CodEmpleado + " , '" + FechaEnt + "';";
             if (!Grabar())
                 return false;
             
@@ -497,9 +497,6 @@ namespace webElectroHogar.Clases
                 }
                 //Comienza RN
                 float PorcDesc = -1;
-                
-                //oO.intTipo = TipoCliente;
-                //oO.intCant = Convert.ToInt32(Cantidad);
                 if (BuscarTipoCliente(Cliente))
                 {
                     if (TipoCliente == 2)

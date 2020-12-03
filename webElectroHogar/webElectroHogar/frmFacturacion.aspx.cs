@@ -152,12 +152,10 @@ namespace webElectroHogar
                     objXX = null;
                     return;
                 }
-                //ibtnBuscarCaso_Click(null, null);
                 this.txtProducto.Text = string.Empty;
                 this.txtCant.Text = string.Empty;
                 this.txtCodigo.Text = string.Empty;
                 this.txtCodigo.ReadOnly = false;
-                //this.btnAdicionar.Visible = true;
                 imgBtnBuscarNum_Click(null,null);
                 Mensaje("Detalle grabado con éxito");
                 this.btnFinalizar.Visible = true;
@@ -254,9 +252,7 @@ namespace webElectroHogar
             intNumero = (intOpcion == 1) ? 0 : Convert.ToInt32(this.txtNumero.Text);
             strCliente = this.txtCliente.Text;
             intFormaPago = this.ddlFormaPago.SelectedIndex+1;
-            strNombre = this.txtCliente.Text;
-            //Traer codigo y nombre de empleado
-            
+            strNombre = this.txtCliente.Text;            
 
             if (intOpcion == 1) // Agregar
             {
@@ -307,7 +303,6 @@ namespace webElectroHogar
             }
             this.txtNumero.Text = intNumero.ToString();
             imgBtnBuscarNum_Click(null, null);
-            //this.pnlProducto.Enabled = false;
             this.txtCliente.ReadOnly = true;
             LimpiarDetalle();
             Mensaje("Registro grabado con éxito");
@@ -346,7 +341,6 @@ namespace webElectroHogar
             }
         }
         #endregion
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

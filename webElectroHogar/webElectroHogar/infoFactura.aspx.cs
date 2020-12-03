@@ -55,7 +55,7 @@ namespace webElectroHogar
                         Response.Redirect("frmFacturacion.aspx");
                 }
                 catch
-                { Response.Redirect("frmFacturacon.aspx"); }
+                { Response.Redirect("frmFacturacion.aspx"); }
             }
         }
     }
