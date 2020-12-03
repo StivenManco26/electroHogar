@@ -124,12 +124,14 @@ namespace webElectroHogar
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
             Limpiar();
+            intOpcion = 0;
+            this.btnAdicionar.Visible = false;
         }
 
         protected void btnAdicionar_Click(object sender, EventArgs e)
         {
             Mensaje(string.Empty);
-            if (intOpcion != 2)
+            if (intOpcion != 1)
             {
                 Mensaje("Opción no válida");
                 return;
@@ -210,7 +212,8 @@ namespace webElectroHogar
 
         private void BuscarXNumero()
         {
-            this.grvDatos.Columns[0].Visible = true;
+            if (intOpcion==1)
+                this.grvDatos.Columns[0].Visible = true;
             Clases.clsFacturacion objXX = new Clases.clsFacturacion(strApp);
             if (!objXX.BuscarFactura(intNumero, this.grvDatos))
             {
@@ -228,7 +231,7 @@ namespace webElectroHogar
             this.txtDesc.Text = objXX.Desc.ToString("C2");
             this.txtTotal.Text = objXX.Total.ToString("C2");
             this.txtEmpleado.Text = objXX.Empleado;
-            if (intOpcion == 1 || intOpcion == 2)
+            if (intOpcion == 1 )
             {
                 this.imgBtnBuscarCod.Visible = true;
                 this.btnAdicionar.Visible = true;
@@ -278,7 +281,6 @@ namespace webElectroHogar
                 this.txtCodigo.ReadOnly = false;
                 this.txtCodigo.Focus();
                 this.btnAdicionar.Visible = true;
-                intOpcion = 2;
             }
             else // Modificar
             {
@@ -293,6 +295,7 @@ namespace webElectroHogar
                     return;
                 }
                 intNumero = objXX2.Numero;
+                this.ddlFormaPago.Enabled = false;
                 objXX2 = null;
             }
             if (intNumero == 0)
@@ -365,6 +368,10 @@ namespace webElectroHogar
             this.imgBtnBuscarCli.Visible = false;
             this.pnlProducto.Enabled = false;
             this.btnAdicionar.Visible = false;
+            this.ddlFormaPago.Enabled = false;
+            this.txtFechaEntr.ReadOnly = true;
+            if (intOpcion != 1)
+                this.grvDatos.Columns[0].Visible = false;
             Mensaje(string.Empty);
             switch (this.mnuOpciones.SelectedValue)
             {
@@ -376,19 +383,15 @@ namespace webElectroHogar
                     this.txtFechaEntr.ReadOnly = false;
                     this.txtFechaEntr.Enabled = true;
                     this.imgBtnBuscarCli.Visible = true;
+                    this.ddlFormaPago.Enabled = true;
                     this.txtCliente.Focus();
                     this.txtFecha.Text = DateTime.Today.Date.ToShortDateString();
                     break;
                 case "opcModificar":
                     intOpcion = 2;
-                    this.pnlProducto.Visible = true;
-                    this.pnlProducto.Enabled = true;
-                    this.imgBtnBuscarCod.Visible = true;
-                    this.txtCodigo.ReadOnly = false;
-                    this.txtCodigo.Enabled = true;
-                    this.txtNumero.ReadOnly = true;
-                    this.btnAdicionar.Visible = true;
-                    this.txtNumero.Focus();
+                    this.txtFechaEntr.ReadOnly = false;
+                    this.txtFechaEntr.Focus();
+                    this.ddlFormaPago.Enabled = false;
                     break;
                 case "opcBuscarXNumero":
                     intOpcion = 0;

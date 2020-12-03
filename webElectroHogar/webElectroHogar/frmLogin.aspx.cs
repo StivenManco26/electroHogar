@@ -17,6 +17,7 @@ namespace webElectroHogar
             if (!IsPostBack)
             {
                 strApp = System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
+                Session["codigo"] = string.Empty;
             }
         }
 
