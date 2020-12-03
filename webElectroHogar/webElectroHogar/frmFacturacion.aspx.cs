@@ -260,6 +260,11 @@ namespace webElectroHogar
             if (intOpcion == 1) // Agregar
             {
                 dtmFecha = Convert.ToDateTime(this.txtFecha.Text);
+                if (string.IsNullOrEmpty(this.txtFechaEntr.Text))
+                {
+                    Mensaje("Debe ingresar la fecha de entrega");
+                    return;
+                }
                 dtmFechaEnt = Convert.ToDateTime(this.txtFechaEntr.Text);
                 
                 Clases.clsFacturacion objXX1 = new Clases.clsFacturacion(
